@@ -5,95 +5,154 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Janike und Mirco – Euer kleines Hochzeitsrätsel</title>
+    <meta
+        name="theme-color"
+        content="#e9eee4"
+    >
+
+    <title>
+        Janike und Mirco – Euer kleines Hochzeitsrätsel
+    </title>
 
     <style>
 
-        /* =========================
-           GRUNDLAYOUT
-        ========================= */
+        /* =========================================================
+           DESIGN TOKENS
+        ========================================================= */
 
-        * {
+        :root {
+
+            --color-background: #e9eee4;
+            --color-surface: rgba(255, 253, 248, 0.96);
+
+            --color-primary: #66755d;
+            --color-primary-dark: #56654e;
+
+            --color-secondary: #a17f76;
+            --color-accent: #c19b91;
+
+            --color-text: #4d5749;
+            --color-text-muted: #718064;
+
+            --color-border: rgba(139, 154, 122, 0.25);
+            --color-answer-border: #ddd7ca;
+
+            --color-answer-background: #faf8f2;
+            --color-answer-hover: #f2eee4;
+
+            --color-success: #718264;
+            --color-error: #a16f67;
+
+            --shadow-card:
+                0 20px 60px rgba(70, 80, 65, 0.15),
+                0 3px 12px rgba(70, 80, 65, 0.08);
+
+            --radius-card: 35px;
+            --radius-inner: 27px;
+            --radius-button: 40px;
+
+            --font-serif:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.4s ease;
+
+        }
+
+
+        /* =========================================================
+           RESET / BASIS
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
+
+
+        html {
+            min-height: 100%;
+        }
+
 
         body {
 
             margin: 0;
 
             min-height: 100vh;
+            min-height: 100dvh;
 
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             padding: 25px;
 
             background:
+
                 radial-gradient(
                     circle at 20% 20%,
-                    rgba(255,255,255,0.85),
+                    rgba(255, 255, 255, 0.85),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 80% 80%,
-                    rgba(255,220,220,0.55),
+                    rgba(255, 220, 220, 0.55),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 50% 100%,
-                    rgba(205,220,190,0.45),
+                    rgba(205, 220, 190, 0.45),
                     transparent 35%
                 ),
-                #e9eee4;
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+                var(--color-background);
 
-            color: #4d5749;
+            font-family: var(--font-serif);
+
+            color: var(--color-text);
 
             overflow-x: hidden;
 
         }
 
 
-        /* =========================
+        button {
+            font: inherit;
+        }
+
+
+        /* =========================================================
            HAUPTKARTE
-        ========================= */
+        ========================================================= */
 
         .card {
 
             width: 100%;
-
             max-width: 680px;
 
             padding: 50px 40px;
 
-            background:
-                rgba(255, 253, 248, 0.95);
-
-            border:
-                1px solid
-                rgba(139, 154, 122, 0.25);
-
-            border-radius: 35px;
-
-            box-shadow:
-
-                0 20px 60px
-                rgba(70, 80, 65, 0.15),
-
-                0 3px 12px
-                rgba(70, 80, 65, 0.08);
-
             position: relative;
+
+            background: var(--color-surface);
+
+            border: 1px solid var(--color-border);
+
+            border-radius: var(--radius-card);
+
+            box-shadow: var(--shadow-card);
 
             overflow: hidden;
 
@@ -112,51 +171,121 @@
 
             inset: 12px;
 
-            border:
-                1px solid
-                rgba(154, 123, 114, 0.18);
+            border: 1px solid rgba(154, 123, 114, 0.18);
 
-            border-radius: 27px;
+            border-radius: var(--radius-inner);
 
             pointer-events: none;
 
         }
 
 
-        /* =========================
-           KOPF / DEKORATION
-        ========================= */
+        /* =========================================================
+           SEITEN
+        ========================================================= */
 
-        .flowers {
+        .page {
+            position: relative;
+            z-index: 2;
+        }
 
-            font-size: 1.8rem;
 
-            letter-spacing: 6px;
+        .hidden {
+            display: none !important;
+        }
 
-            margin-bottom: 15px;
+
+        /* =========================================================
+           PARTY-DEKORATION
+        ========================================================= */
+
+        /*
+         * Bewusst nicht mehr "flowers":
+         * Die Gestaltung soll zur Party / Hochzeit passen.
+         */
+
+        .party-decoration {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 16px;
+
+            font-size: 1.75rem;
+
+            letter-spacing: 2px;
+
+            line-height: 1;
+
+            user-select: none;
 
         }
 
 
+        .party-decoration .sparkle {
+            display: inline-block;
+
+            animation:
+                sparkle 2.4s ease-in-out infinite;
+        }
+
+
+        .party-decoration .sparkle:nth-child(2) {
+            animation-delay: 0.35s;
+        }
+
+
+        .party-decoration .sparkle:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================================================
+           TYPOGRAFIE
+        ========================================================= */
+
         .small-title {
 
-            text-transform: uppercase;
+            margin-bottom: 8px;
 
-            letter-spacing: 4px;
+            color: var(--color-secondary);
 
             font-size: 0.75rem;
 
-            color: #9a7b72;
+            font-weight: 600;
 
-            margin-bottom: 8px;
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
 
         }
 
 
         h1 {
 
-            margin:
-                0 0 8px 0;
+            margin: 0 0 8px;
+
+            color: var(--color-primary);
 
             font-size: clamp(
                 2.4rem,
@@ -166,26 +295,31 @@
 
             font-weight: normal;
 
-            color: #66755d;
+            line-height: 1.1;
 
         }
 
 
         h2 {
 
-            margin:
-                0 0 35px 0;
+            margin: 0 0 35px;
+
+            color: var(--color-secondary);
 
             font-size: 1.35rem;
 
             font-weight: normal;
 
-            color: #a17f76;
+            line-height: 1.4;
 
         }
 
 
         h3 {
+
+            margin: 0 0 30px;
+
+            color: var(--color-primary);
 
             font-size: clamp(
                 1.3rem,
@@ -193,30 +327,32 @@
                 1.7rem
             );
 
+            font-weight: normal;
+
             line-height: 1.4;
-
-            color: #66755d;
-
-            margin-bottom: 30px;
 
         }
 
 
         p {
 
+            margin: 14px 0;
+
             font-size: 1.08rem;
 
             line-height: 1.8;
 
-            margin:
-                14px 0;
-
         }
 
 
-        /* =========================
+        strong {
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
            TRENNER
-        ========================= */
+        ========================================================= */
 
         .divider {
 
@@ -228,7 +364,7 @@
 
             margin: 30px 0;
 
-            color: #c19b91;
+            color: var(--color-accent);
 
         }
 
@@ -243,23 +379,33 @@
             flex: 1;
 
             background:
-                rgba(193,155,145,0.35);
+                rgba(193, 155, 145, 0.35);
 
         }
 
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        /* =========================================================
+           BUTTON
+        ========================================================= */
 
         .button {
 
-            display: inline-block;
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            width: auto;
+
+            min-height: 52px;
 
             margin-top: 25px;
 
-            padding:
-                15px 32px;
+            padding: 15px 32px;
+
+            border: 0;
+
+            border-radius: var(--radius-button);
 
             background:
                 linear-gradient(
@@ -268,66 +414,84 @@
                     #718264
                 );
 
-            color: white;
+            color: #ffffff;
 
-            border: none;
-
-            border-radius: 40px;
-
-            font-family: Georgia, serif;
+            font-family: var(--font-serif);
 
             font-size: 1.05rem;
+
+            font-weight: 600;
 
             cursor: pointer;
 
             box-shadow:
                 0 8px 18px
-                rgba(113,130,100,0.25);
+                rgba(113, 130, 100, 0.25);
 
             transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast),
+                filter var(--transition-fast);
 
         }
 
 
-        .button:hover {
+        .button:hover:not(:disabled) {
 
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
 
             box-shadow:
                 0 12px 25px
-                rgba(113,130,100,0.3);
+                rgba(113, 130, 100, 0.3);
+
+            filter: brightness(1.03);
 
         }
 
 
-        .button:active {
+        .button:active:not(:disabled) {
 
-            transform:
-                translateY(1px);
+            transform: translateY(1px);
 
         }
 
 
-        /* =========================
-           FRAGEN
-        ========================= */
+        .button:focus-visible,
+        .answer:focus-visible {
+
+            outline: 3px solid rgba(161, 127, 118, 0.4);
+
+            outline-offset: 3px;
+
+        }
+
+
+        .button:disabled {
+
+            cursor: default;
+
+            opacity: 0.7;
+
+        }
+
+
+        /* =========================================================
+           QUIZ
+        ========================================================= */
 
         #questionNumber {
 
-            display: inline-block;
+            display: inline-flex;
 
-            padding:
-                7px 16px;
+            align-items: center;
+
+            padding: 7px 16px;
 
             border-radius: 20px;
 
-            background:
-                #f0e7df;
+            background: #f0e7df;
 
-            color: #9a7b72;
+            color: var(--color-secondary);
 
             font-size: 0.85rem;
 
@@ -336,109 +500,32 @@
         }
 
 
-        .answer {
-
-            display: block;
-
-            width: 100%;
-
-            margin: 12px 0;
-
-            padding: 17px 20px;
-
-            background:
-                #faf8f2;
-
-            border:
-                1.5px solid
-                #ddd7ca;
-
-            border-radius: 18px;
-
-            color: #4d5749;
-
-            font-family: Georgia, serif;
-
-            font-size: 1rem;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease,
-                border-color 0.2s ease;
-
-        }
-
-
-        .answer:hover {
-
-            background: #f2eee4;
-
-            border-color: #a8b19d;
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        /* =========================
-           FEEDBACK
-        ========================= */
-
-        #message {
-
-            min-height: 30px;
-
-            margin-top: 20px;
-
-            font-size: 1rem;
-
-        }
-
-
-        .correct {
-
-            color: #718264;
-
-        }
-
-
-        .wrong {
-
-            color: #a16f67;
-
-        }
-
-
-        /* =========================
+        /* =========================================================
            FORTSCHRITT
-        ========================= */
+        ========================================================= */
 
         .progress {
 
+            width: 100%;
+
             height: 6px;
 
-            width: 100%;
+            margin: 25px 0 30px;
+
+            overflow: hidden;
 
             background: #e8e3d9;
 
             border-radius: 10px;
-
-            margin:
-                25px 0 30px 0;
-
-            overflow: hidden;
 
         }
 
 
         .progress-bar {
 
-            height: 100%;
+            width: 0;
 
-            width: 14.28%;
+            height: 100%;
 
             background:
                 linear-gradient(
@@ -455,38 +542,145 @@
         }
 
 
-        /* =========================
-           VERSTECKTE ELEMENTE
-        ========================= */
+        /* =========================================================
+           ANTWORTEN
+        ========================================================= */
 
-        .hidden {
+        .answers {
 
-            display: none;
+            display: grid;
+
+            gap: 12px;
 
         }
 
 
-        /* =========================
+        .answer {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 17px 20px;
+
+            border:
+                1.5px solid
+                var(--color-answer-border);
+
+            border-radius: 18px;
+
+            background: var(--color-answer-background);
+
+            color: var(--color-text);
+
+            font-family: var(--font-serif);
+
+            font-size: 1rem;
+
+            line-height: 1.45;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition:
+                background var(--transition-fast),
+                transform var(--transition-fast),
+                border-color var(--transition-fast),
+                box-shadow var(--transition-fast);
+
+        }
+
+
+        .answer:hover:not(:disabled) {
+
+            background: var(--color-answer-hover);
+
+            border-color: #a8b19d;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 4px 10px
+                rgba(70, 80, 65, 0.06);
+
+        }
+
+
+        .answer:disabled {
+            cursor: default;
+        }
+
+
+        .answer.correct-answer {
+
+            background: #edf3e9;
+
+            border-color: #8b9a7a;
+
+        }
+
+
+        .answer.wrong-answer {
+
+            background: #f7ece9;
+
+            border-color: #c49a91;
+
+        }
+
+
+        /* =========================================================
+           FEEDBACK
+        ========================================================= */
+
+        #message {
+
+            min-height: 30px;
+
+            margin-top: 20px;
+
+            font-size: 1rem;
+
+            line-height: 1.5;
+
+        }
+
+
+        .correct {
+            color: var(--color-success);
+        }
+
+
+        .wrong {
+            color: var(--color-error);
+        }
+
+
+        /* =========================================================
            ERFOLG
-        ========================= */
+        ========================================================= */
 
         .success-icon {
 
+            margin-bottom: 10px;
+
             font-size: 4rem;
 
-            margin-bottom: 10px;
+            line-height: 1;
 
         }
 
 
-        /* =========================
+        /* =========================================================
            GELDBETRAG
-        ========================= */
+        ========================================================= */
 
         .reward {
 
-            margin:
-                25px 0;
+            margin: 25px 0;
+
+            color: #8b6f65;
 
             font-size: clamp(
                 3.5rem,
@@ -496,62 +690,63 @@
 
             font-weight: bold;
 
-            color: #8b6f65;
+            line-height: 1;
 
             text-shadow:
                 0 3px 0
-                rgba(139,111,101,0.08);
+                rgba(139, 111, 101, 0.08);
 
         }
 
+
+        /* =========================================================
+           HERZ
+        ========================================================= */
 
         .heart {
 
             display: inline-block;
 
             animation:
-                heartbeat 1.5s infinite;
+                heartbeat 1.5s ease-in-out infinite;
 
         }
 
 
         @keyframes heartbeat {
 
-            0%, 100% {
-
-                transform:
-                    scale(1);
-
+            0%,
+            100% {
+                transform: scale(1);
             }
 
             50% {
-
-                transform:
-                    scale(1.15);
-
+                transform: scale(1.15);
             }
 
         }
 
 
-        /* =========================
+        /* =========================================================
            KONFETTI
-        ========================= */
+        ========================================================= */
 
         .confetti {
 
             position: fixed;
 
-            top: -20px;
+            top: -40px;
 
-            font-size: 20px;
+            z-index: 100;
 
             pointer-events: none;
 
+            font-size: 20px;
+
+            line-height: 1;
+
             animation:
                 confettiFall 4s linear forwards;
-
-            z-index: 10;
 
         }
 
@@ -561,7 +756,7 @@
             0% {
 
                 transform:
-                    translateY(0)
+                    translate3d(0, 0, 0)
                     rotate(0deg);
 
                 opacity: 1;
@@ -571,7 +766,11 @@
             100% {
 
                 transform:
-                    translateY(110vh)
+                    translate3d(
+                        var(--drift),
+                        110vh,
+                        0
+                    )
                     rotate(720deg);
 
                 opacity: 0;
@@ -581,9 +780,32 @@
         }
 
 
-        /* =========================
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior: auto !important;
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+
+            }
+
+        }
+
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 600px) {
 
@@ -591,15 +813,12 @@
 
                 padding: 8px;
 
-                min-height: 100dvh;
-
             }
 
 
             .card {
 
-                padding:
-                    28px 18px;
+                padding: 28px 18px;
 
                 border-radius: 24px;
 
@@ -615,13 +834,15 @@
             }
 
 
-            .flowers {
+            .party-decoration {
 
-                font-size: 1.25rem;
+                gap: 6px;
 
-                letter-spacing: 3px;
+                margin-bottom: 10px;
 
-                margin-bottom: 8px;
+                font-size: 1.35rem;
+
+                letter-spacing: 1px;
 
             }
 
@@ -637,38 +858,38 @@
 
             h1 {
 
-                font-size: 2.2rem;
-
                 margin-bottom: 5px;
+
+                font-size: 2.2rem;
 
             }
 
 
             h2 {
 
-                font-size: 1.1rem;
-
                 margin-bottom: 20px;
+
+                font-size: 1.1rem;
 
             }
 
 
             h3 {
 
-                font-size: 1.25rem;
-
                 margin-bottom: 20px;
+
+                font-size: 1.25rem;
 
             }
 
 
             p {
 
+                margin: 10px 0;
+
                 font-size: 0.95rem;
 
                 line-height: 1.55;
-
-                margin: 10px 0;
 
             }
 
@@ -686,8 +907,7 @@
 
                 margin-top: 18px;
 
-                padding:
-                    13px 20px;
+                padding: 13px 20px;
 
                 font-size: 1rem;
 
@@ -696,46 +916,48 @@
 
             .answer {
 
-                padding:
-                    14px 16px;
-
-                margin: 9px 0;
+                padding: 14px 16px;
 
                 font-size: 0.95rem;
 
             }
 
 
-            /* Geschenkseite speziell für kleine Displays */
+            .answers {
+
+                gap: 9px;
+
+            }
+
 
             #reward h1 {
 
-                font-size: 1.9rem;
-
                 margin-bottom: 8px;
+
+                font-size: 1.9rem;
 
             }
 
 
             #reward .reward {
 
-                font-size: 4rem;
-
                 margin: 12px 0;
+
+                font-size: 4rem;
 
             }
 
 
             #reward .success-icon {
 
-                font-size: 2.8rem;
-
                 margin-bottom: 4px;
+
+                font-size: 2.8rem;
 
             }
 
 
-            #reward .flowers {
+            #reward .party-decoration {
 
                 margin-bottom: 4px;
 
@@ -751,11 +973,11 @@
 
             #reward p {
 
+                margin: 8px 0;
+
                 font-size: 0.9rem;
 
                 line-height: 1.45;
-
-                margin: 8px 0;
 
             }
 
@@ -769,21 +991,27 @@
 <body>
 
 
-    <!-- =========================
-         HAUPTKARTE
-    ========================== -->
+    <main class="card">
 
-    <div class="card">
-
-
-        <!-- =====================
+        <!-- =====================================================
              STARTSEITE
-        ====================== -->
+        ====================================================== -->
 
-        <div id="start">
+        <section
+            id="start"
+            class="page"
+            aria-labelledby="start-title"
+        >
 
-            <div class="flowers">
-                🥂 ✨ 💍 ✨ 🥂
+            <div
+                class="party-decoration"
+                aria-hidden="true"
+            >
+                🥂
+                <span class="sparkle">✨</span>
+                💍
+                <span class="sparkle">✨</span>
+                🎉
             </div>
 
 
@@ -792,7 +1020,7 @@
             </div>
 
 
-            <h1>
+            <h1 id="start-title">
                 Janike und Mirco
             </h1>
 
@@ -810,11 +1038,19 @@
             <p>
                 heute wird gefeiert, gelacht,
                 getanzt und natürlich geheiratet.
-                <span class="heart">❤️</span>
+                <span
+                    class="heart"
+                    aria-hidden="true"
+                >
+                    ❤️
+                </span>
             </p>
 
 
-            <div class="divider">
+            <div
+                class="divider"
+                aria-hidden="true"
+            >
                 ✨
             </div>
 
@@ -827,14 +1063,14 @@
 
 
             <p>
-                <strong>Sieben Fragen.</strong><br>
-                <strong>Sieben Antworten.</strong><br>
+                <strong>Acht Fragen.</strong><br>
+                <strong>Acht Antworten.</strong><br>
                 <strong>Die Überraschung.</strong> 🎁
             </p>
 
 
             <p>
-                Nur wenn Ihr alle sieben Fragen richtig
+                Nur wenn Ihr alle acht Fragen richtig
                 beantwortet, lüftet sich das Geheimnis.
             </p>
 
@@ -845,40 +1081,60 @@
 
 
             <button
+                id="startButton"
                 class="button"
-                onclick="startQuiz()">
-
+                type="button"
+            >
                 Das Rätsel beginnt 🎉
-
             </button>
 
-        </div>
+        </section>
 
 
 
-        <!-- =====================
+        <!-- =====================================================
              QUIZ
-        ====================== -->
+        ====================================================== -->
 
-        <div id="quiz" class="hidden">
+        <section
+            id="quiz"
+            class="page hidden"
+            aria-labelledby="question"
+        >
 
-
-            <div class="flowers">
-                🥂 ✨ 💕
+            <div
+                class="party-decoration"
+                aria-hidden="true"
+            >
+                🥂
+                <span class="sparkle">✨</span>
+                💕
+                <span class="sparkle">✨</span>
+                🎊
             </div>
 
 
-            <div id="questionNumber">
-                Frage 1 von 7
+            <div
+                id="questionNumber"
+                aria-live="polite"
+            >
+                Frage 1 von 8
             </div>
 
 
-            <div class="progress">
+            <div
+                class="progress"
+                role="progressbar"
+                aria-label="Quiz-Fortschritt"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
 
                 <div
                     id="progressBar"
-                    class="progress-bar">
-                </div>
+                    class="progress-bar"
+                ></div>
 
             </div>
 
@@ -886,33 +1142,51 @@
             <h3 id="question"></h3>
 
 
-            <div id="answers"></div>
+            <div
+                id="answers"
+                class="answers"
+            ></div>
 
 
-            <div id="message"></div>
+            <div
+                id="message"
+                aria-live="polite"
+                aria-atomic="true"
+            ></div>
 
-        </div>
+        </section>
 
 
 
-        <!-- =====================
+        <!-- =====================================================
              ERFOLG
-        ====================== -->
+        ====================================================== -->
 
-        <div id="success" class="hidden">
+        <section
+            id="success"
+            class="page hidden"
+            aria-labelledby="success-title"
+        >
 
-
-            <div class="success-icon">
+            <div
+                class="success-icon"
+                aria-hidden="true"
+            >
                 🎉
             </div>
 
 
-            <div class="flowers">
-                🥂 ✨ 🎊
+            <div
+                class="party-decoration"
+                aria-hidden="true"
+            >
+                🥂
+                <span class="sparkle">✨</span>
+                🎊
             </div>
 
 
-            <h1>
+            <h1 id="success-title">
                 Geschafft!
             </h1>
 
@@ -923,13 +1197,21 @@
 
 
             <p>
-                Ihr habt tatsächlich alle sieben Fragen
+                Ihr habt tatsächlich alle acht Fragen
                 richtig beantwortet!
-                <span class="heart">❤️</span>
+                <span
+                    class="heart"
+                    aria-hidden="true"
+                >
+                    ❤️
+                </span>
             </p>
 
 
-            <div class="divider">
+            <div
+                class="divider"
+                aria-hidden="true"
+            >
                 ✨
             </div>
 
@@ -942,25 +1224,31 @@
 
 
             <button
+                id="rewardButton"
                 class="button"
-                onclick="showReward()">
-
+                type="button"
+            >
                 Geschenk öffnen 🎁
-
             </button>
 
-        </div>
+        </section>
 
 
 
-        <!-- =====================
+        <!-- =====================================================
              BELOHNUNG
-        ====================== -->
+        ====================================================== -->
 
-        <div id="reward" class="hidden">
+        <section
+            id="reward"
+            class="page hidden"
+            aria-labelledby="reward-title"
+        >
 
-
-            <div class="success-icon">
+            <div
+                class="success-icon"
+                aria-hidden="true"
+            >
                 🥂
             </div>
 
@@ -970,12 +1258,15 @@
             </div>
 
 
-            <h1>
+            <h1 id="reward-title">
                 Euer Hochzeitsgeschenk
             </h1>
 
 
-            <div class="divider">
+            <div
+                class="divider"
+                aria-hidden="true"
+            >
                 ✨
             </div>
 
@@ -989,44 +1280,51 @@
 
 
             <p>
-                Und für den Einen oder anderen
+                Und für den einen oder anderen
                 davon gibt es von uns …
             </p>
 
 
-            <div class="reward">
+            <div
+                class="reward"
+                aria-label="350 Euro"
+            >
                 350 €
             </div>
 
 
             <p>
                 <strong>
-                    Auf euch! ❤️
+                    Auf Euch! ❤️
                 </strong>
             </p>
 
 
-            <p>
-                🥂 ✨ ❤️ ✨ 🥂
-            </p>
+            <div
+                class="party-decoration"
+                aria-hidden="true"
+            >
+                🥂
+                <span class="sparkle">✨</span>
+                ❤️
+                <span class="sparkle">✨</span>
+                🎉
+            </div>
 
-        </div>
+        </section>
+
+    </main>
 
 
-    </div>
-
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
 
     <script>
 
+        "use strict";
 
-        /* =========================
+
+        /* =========================================================
            FRAGEN
-        ========================= */
+        ========================================================= */
 
         const questions = [
 
@@ -1125,180 +1423,293 @@
                 ],
 
                 correct: 0
+            },
+
+
+            {
+                question:
+                    "Was würde Janike wahrscheinlich am glücklichsten machen?",
+
+                answers: [
+                    "Auswärtsfahrten ⚽️",
+                    "Ein perfekt gemachter Matcha und ein neues Buch 🍵📚",
+                    "Ein Wochenende ohne Handy 📵"
+                ],
+
+                correct: 1
             }
 
         ];
 
 
+        /* =========================================================
+           STATE
+        ========================================================= */
+
         let currentQuestion = 0;
 
+        let isAnswerLocked = false;
 
 
-        /* =========================
-           QUIZ STARTEN
-        ========================= */
+        /* =========================================================
+           DOM-ELEMENTE
+        ========================================================= */
 
-        function startQuiz() {
+        const startPage =
+            document.getElementById("start");
 
-            document
-                .getElementById("start")
-                .classList
-                .add("hidden");
+        const quizPage =
+            document.getElementById("quiz");
+
+        const successPage =
+            document.getElementById("success");
+
+        const rewardPage =
+            document.getElementById("reward");
+
+        const startButton =
+            document.getElementById("startButton");
+
+        const rewardButton =
+            document.getElementById("rewardButton");
+
+        const questionNumber =
+            document.getElementById("questionNumber");
+
+        const questionElement =
+            document.getElementById("question");
+
+        const answersContainer =
+            document.getElementById("answers");
+
+        const messageElement =
+            document.getElementById("message");
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+        const progressContainer =
+            document.querySelector(".progress");
 
 
-            document
-                .getElementById("quiz")
-                .classList
-                .remove("hidden");
+        /* =========================================================
+           HILFSFUNKTIONEN
+        ========================================================= */
+
+        function showPage(pageToShow) {
+
+            [
+                startPage,
+                quizPage,
+                successPage,
+                rewardPage
+            ].forEach(function (page) {
+
+                page.classList.add("hidden");
+
+            });
 
 
-            showQuestion();
+            pageToShow.classList.remove("hidden");
 
         }
 
 
+        function updateProgress() {
 
-        /* =========================
-           FRAGE ANZEIGEN
-        ========================= */
-
-        function showQuestion() {
-
-            const q =
-                questions[currentQuestion];
-
-
-            document
-                .getElementById("questionNumber")
-                .textContent =
-
-                "Frage " +
-                (currentQuestion + 1) +
-                " von " +
+            const total =
                 questions.length;
 
-
-            document
-                .getElementById("question")
-                .textContent =
-
-                q.question;
-
-
-            /* Fortschrittsbalken */
-
             const progress =
-
-                ((currentQuestion + 1)
-                / questions.length)
-                * 100;
+                ((currentQuestion + 1) / total) * 100;
 
 
-            document
-                .getElementById("progressBar")
-                .style.width =
-
-                progress + "%";
+            progressBar.style.width =
+                `${progress}%`;
 
 
-            const answersContainer =
-                document
-                .getElementById("answers");
-
-
-            answersContainer.innerHTML = "";
-
-
-            document
-                .getElementById("message")
-                .textContent = "";
-
-
-            document
-                .getElementById("message")
-                .className = "";
-
-
-            q.answers.forEach(
-
-                function(answer, index) {
-
-
-                    const button =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    button.textContent =
-                        answer;
-
-
-                    button.className =
-                        "answer";
-
-
-                    button.type =
-                        "button";
-
-
-                    button.onclick =
-
-                        function() {
-
-                            checkAnswer(index);
-
-                        };
-
-
-                    answersContainer
-                        .appendChild(button);
-
-                }
-
+            progressContainer.setAttribute(
+                "aria-valuenow",
+                String(Math.round(progress))
             );
 
         }
 
 
+        /* =========================================================
+           QUIZ STARTEN
+        ========================================================= */
 
-        /* =========================
-           ANTWORT PRÜFEN
-        ========================= */
+        function startQuiz() {
 
-        function checkAnswer(
-            selectedAnswer
-        ) {
+            currentQuestion = 0;
 
-            const q =
+            isAnswerLocked = false;
+
+            showPage(quizPage);
+
+            showQuestion();
+
+            requestAnimationFrame(function () {
+
+                questionElement.focus?.();
+
+            });
+
+        }
+
+
+        /* =========================================================
+           FRAGE ANZEIGEN
+        ========================================================= */
+
+        function showQuestion() {
+
+            const current =
                 questions[currentQuestion];
 
 
-            const message =
-                document
-                .getElementById("message");
+            if (!current) {
+
+                showSuccess();
+
+                return;
+
+            }
 
 
-            if (
-                selectedAnswer ===
-                q.correct
-            ) {
+            isAnswerLocked = false;
 
-                message.textContent =
+
+            questionNumber.textContent =
+                `Frage ${currentQuestion + 1} von ${questions.length}`;
+
+
+            questionElement.textContent =
+                current.question;
+
+
+            updateProgress();
+
+
+            messageElement.textContent = "";
+
+            messageElement.className = "";
+
+
+            answersContainer.innerHTML = "";
+
+
+            current.answers.forEach(
+                function (answer, index) {
+
+                    const button =
+                        document.createElement("button");
+
+
+                    button.type = "button";
+
+                    button.className = "answer";
+
+                    button.textContent = answer;
+
+                    button.dataset.answerIndex =
+                        String(index);
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            checkAnswer(index);
+
+                        }
+                    );
+
+
+                    answersContainer.appendChild(button);
+
+                }
+            );
+
+
+            const firstAnswer =
+                answersContainer.querySelector(".answer");
+
+
+            if (firstAnswer) {
+
+                firstAnswer.focus();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           ANTWORT PRÜFEN
+        ========================================================= */
+
+        function checkAnswer(selectedAnswer) {
+
+            if (isAnswerLocked) {
+                return;
+            }
+
+
+            const current =
+                questions[currentQuestion];
+
+
+            if (!current) {
+                return;
+            }
+
+
+            const answerButtons =
+                answersContainer.querySelectorAll(".answer");
+
+
+            const selectedButton =
+                answerButtons[selectedAnswer];
+
+
+            if (!selectedButton) {
+                return;
+            }
+
+
+            if (selectedAnswer === current.correct) {
+
+                isAnswerLocked = true;
+
+
+                answerButtons.forEach(
+                    function (button) {
+
+                        button.disabled = true;
+
+                    }
+                );
+
+
+                selectedButton.classList.add(
+                    "correct-answer"
+                );
+
+
+                messageElement.textContent =
                     "✨ Richtig! Sehr gut! 🥂";
 
 
-                message.className =
+                messageElement.className =
                     "correct";
 
 
                 currentQuestion++;
 
 
-                setTimeout(
-
-                    function() {
-
+                window.setTimeout(
+                    function () {
 
                         if (
                             currentQuestion <
@@ -1307,108 +1718,113 @@
 
                             showQuestion();
 
-                        }
+                        } else {
 
-                        else {
-
-                            document
-                                .getElementById("quiz")
-                                .classList
-                                .add("hidden");
-
-
-                            document
-                                .getElementById("success")
-                                .classList
-                                .remove("hidden");
-
-
-                            createConfetti();
+                            showSuccess();
 
                         }
 
                     },
-
                     800
-
                 );
 
-            }
-
-
-            else {
-
-                message.textContent =
-                    "✨ Das war leider nicht richtig. Versuch es noch einmal! 😉";
-
-
-                message.className =
-                    "wrong";
+                return;
 
             }
+
+
+            selectedButton.classList.add(
+                "wrong-answer"
+            );
+
+
+            messageElement.textContent =
+                "✨ Das war leider nicht richtig. Versuch es noch einmal! 😉";
+
+
+            messageElement.className =
+                "wrong";
+
+
+            window.setTimeout(
+                function () {
+
+                    selectedButton.classList.remove(
+                        "wrong-answer"
+                    );
+
+                },
+                700
+            );
 
         }
 
 
+        /* =========================================================
+           ERFOLG
+        ========================================================= */
 
-        /* =========================
-           BELOHNUNG ANZEIGEN
-        ========================= */
+        function showSuccess() {
+
+            showPage(successPage);
+
+            createConfetti();
+
+        }
+
+
+        /* =========================================================
+           BELOHNUNG
+        ========================================================= */
 
         function showReward() {
 
-            document
-                .getElementById("success")
-                .classList
-                .add("hidden");
-
-
-            document
-                .getElementById("reward")
-                .classList
-                .remove("hidden");
+            showPage(rewardPage);
 
         }
 
 
-
-        /* =========================
+        /* =========================================================
            KONFETTI
-        ========================= */
+        ========================================================= */
 
         function createConfetti() {
 
             const symbols = [
-
                 "🥂",
                 "✨",
                 "🎉",
                 "💕",
                 "🎊",
-                "🌿",
-                "💍"
-
+                "💍",
+                "🎈"
             ];
+
+
+            const amount = 40;
 
 
             for (
                 let i = 0;
-                i < 35;
+                i < amount;
                 i++
             ) {
 
                 const confetti =
-                    document.createElement(
-                        "div"
-                    );
+                    document.createElement("span");
 
 
                 confetti.className =
                     "confetti";
 
 
-                confetti.textContent =
+                confetti.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
 
+
+                confetti.textContent =
                     symbols[
                         Math.floor(
                             Math.random()
@@ -1418,44 +1834,54 @@
 
 
                 confetti.style.left =
-
-                    Math.random() * 100
-                    + "vw";
+                    `${Math.random() * 100}vw`;
 
 
                 confetti.style.animationDelay =
-
-                    Math.random() * 1.5
-                    + "s";
+                    `${Math.random() * 1.5}s`;
 
 
                 confetti.style.fontSize =
-
-                    (14 +
-                    Math.random() * 18)
-                    + "px";
+                    `${14 + Math.random() * 18}px`;
 
 
-                document
-                    .body
-                    .appendChild(confetti);
+                confetti.style.setProperty(
+                    "--drift",
+                    `${-100 + Math.random() * 200}px`
+                );
 
 
-                setTimeout(
+                document.body.appendChild(confetti);
 
-                    function() {
+
+                window.setTimeout(
+                    function () {
 
                         confetti.remove();
 
                     },
-
-                    5500
-
+                    6000
                 );
 
             }
 
         }
+
+
+        /* =========================================================
+           EVENT LISTENER
+        ========================================================= */
+
+        startButton.addEventListener(
+            "click",
+            startQuiz
+        );
+
+
+        rewardButton.addEventListener(
+            "click",
+            showReward
+        );
 
     </script>
 
