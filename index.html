@@ -438,7 +438,7 @@
 
             height: 100%;
 
-            width: 33%;
+            width: 14.28%;
 
             background:
                 linear-gradient(
@@ -827,14 +827,14 @@
 
 
             <p>
-                <strong>Drei Fragen.</strong><br>
-                <strong>Drei Antworten.</strong><br>
+                <strong>Sieben Fragen.</strong><br>
+                <strong>Sieben Antworten.</strong><br>
                 <strong>Die Überraschung.</strong> 🎁
             </p>
 
 
             <p>
-                Nur wenn Ihr alle drei Fragen richtig
+                Nur wenn Ihr alle sieben Fragen richtig
                 beantwortet, lüftet sich das Geheimnis.
             </p>
 
@@ -869,7 +869,7 @@
 
 
             <div id="questionNumber">
-                Frage 1 von 3
+                Frage 1 von 7
             </div>
 
 
@@ -923,7 +923,7 @@
 
 
             <p>
-                Ihr habt tatsächlich alle drei Fragen
+                Ihr habt tatsächlich alle sieben Fragen
                 richtig beantwortet!
                 <span class="heart">❤️</span>
             </p>
@@ -1019,26 +1019,25 @@
 
     <!-- =========================
          JAVASCRIPT
-    ========================== -->
+    ========================= -->
 
     <script>
 
 
         /* =========================
-           TESTFRAGEN
+           FRAGEN
         ========================= */
 
         const questions = [
 
             {
                 question:
-                    "Welche Farbe hat das Gras?",
+                    "Wie hieß Mircos erstes Haustier?",
 
                 answers: [
-                    "Blau",
-                    "Grün",
-                    "Pink",
-                    "Lila"
+                    "Wilma",
+                    "Luisa",
+                    "Jack Daniels"
                 ],
 
                 correct: 1
@@ -1047,13 +1046,40 @@
 
             {
                 question:
-                    "Wie viele Fragen gibt es in diesem Rätsel?",
+                    "In welchem Song träumt Taylor Swift davon, mit jemandem eine Familie zu gründen?",
 
                 answers: [
-                    "Eine",
-                    "Zwei",
-                    "Drei",
-                    "Vier"
+                    "Mine",
+                    "Style",
+                    "Blank Space"
+                ],
+
+                correct: 0
+            },
+
+
+            {
+                question:
+                    "Wo habt ihr uns von dem Heiratsantrag erzählt?",
+
+                answers: [
+                    "Auf der Terrasse im Garten",
+                    "Im Autoscooter",
+                    "In der Wurstabteilung im Edeka"
+                ],
+
+                correct: 0
+            },
+
+
+            {
+                question:
+                    "Auf welchem Konzert waren wir alle zusammen im Mai 2019?",
+
+                answers: [
+                    "Metallica",
+                    "Finch Asozial",
+                    "Casper & Marteria"
                 ],
 
                 correct: 2
@@ -1062,16 +1088,43 @@
 
             {
                 question:
-                    "Wie hoch ist euer Geschenk?",
+                    "Was ist das Wichtigste für eine glückliche Ehe?",
 
                 answers: [
-                    "150 €",
-                    "250 €",
-                    "300 €",
-                    "350 €"
+                    "Liebe ❤️",
+                    "Vertrauen 🤝",
+                    "Alles zusammen – und niemals den Humor verlieren! 🥂"
                 ],
 
-                correct: 3
+                correct: 2
+            },
+
+
+            {
+                question:
+                    "Wie heißt der Liebestrank aus Harry Potter?",
+
+                answers: [
+                    "Felix Felicis",
+                    "Amortentia",
+                    "Veritaserum"
+                ],
+
+                correct: 1
+            },
+
+
+            {
+                question:
+                    "Was war Mircos erster Eindruck von Janike?",
+
+                answers: [
+                    "„Die ist viel zu cool für mich.“",
+                    "„Die könnte die Richtige sein.“",
+                    "„Hoffentlich mag meine Schwester sie.“"
+                ],
+
+                correct: 0
             }
 
         ];
@@ -1131,6 +1184,8 @@
 
                 q.question;
 
+
+            /* Fortschrittsbalken */
 
             const progress =
 
