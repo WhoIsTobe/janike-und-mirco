@@ -161,8 +161,6 @@
         }
 
 
-        /* Dezenter Rahmen */
-
         .card::before {
 
             content: "";
@@ -171,7 +169,9 @@
 
             inset: 12px;
 
-            border: 1px solid rgba(154, 123, 114, 0.18);
+            border:
+                1px solid
+                rgba(154, 123, 114, 0.18);
 
             border-radius: var(--radius-inner);
 
@@ -185,24 +185,24 @@
         ========================================================= */
 
         .page {
+
             position: relative;
+
             z-index: 2;
+
         }
 
 
         .hidden {
+
             display: none !important;
+
         }
 
 
         /* =========================================================
            PARTY-DEKORATION
         ========================================================= */
-
-        /*
-         * Bewusst nicht mehr "flowers":
-         * Die Gestaltung soll zur Party / Hochzeit passen.
-         */
 
         .party-decoration {
 
@@ -227,20 +227,26 @@
 
 
         .party-decoration .sparkle {
+
             display: inline-block;
 
             animation:
                 sparkle 2.4s ease-in-out infinite;
+
         }
 
 
         .party-decoration .sparkle:nth-child(2) {
+
             animation-delay: 0.35s;
+
         }
 
 
-        .party-decoration .sparkle:nth-child(3) {
+        .party-decoration .sparkle:nth-child(4) {
+
             animation-delay: 0.7s;
+
         }
 
 
@@ -248,13 +254,19 @@
 
             0%,
             100% {
+
                 transform: scale(1);
+
                 opacity: 0.85;
+
             }
 
             50% {
+
                 transform: scale(1.15);
+
                 opacity: 1;
+
             }
 
         }
@@ -459,7 +471,9 @@
         .button:focus-visible,
         .answer:focus-visible {
 
-            outline: 3px solid rgba(161, 127, 118, 0.4);
+            outline:
+                3px solid
+                rgba(161, 127, 118, 0.4);
 
             outline-offset: 3px;
 
@@ -569,7 +583,8 @@
 
             border-radius: 18px;
 
-            background: var(--color-answer-background);
+            background:
+                var(--color-answer-background);
 
             color: var(--color-text);
 
@@ -594,11 +609,13 @@
 
         .answer:hover:not(:disabled) {
 
-            background: var(--color-answer-hover);
+            background:
+                var(--color-answer-hover);
 
             border-color: #a8b19d;
 
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
 
             box-shadow:
                 0 4px 10px
@@ -608,7 +625,9 @@
 
 
         .answer:disabled {
+
             cursor: default;
+
         }
 
 
@@ -648,12 +667,16 @@
 
 
         .correct {
+
             color: var(--color-success);
+
         }
 
 
         .wrong {
+
             color: var(--color-error);
+
         }
 
 
@@ -673,12 +696,54 @@
 
 
         /* =========================================================
-           GELDBETRAG
+           GESCHENK / REVEAL
         ========================================================= */
+
+        .gift-intro {
+
+            max-width: 500px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .reveal-area {
+
+            margin: 30px 0 10px;
+
+            padding: 25px 15px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(240, 231, 223, 0.55),
+                    rgba(232, 238, 228, 0.55)
+                );
+
+        }
+
+
+        .reveal-label {
+
+            margin-bottom: 15px;
+
+            color: var(--color-secondary);
+
+            font-size: 0.85rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
 
         .reward {
 
-            margin: 25px 0;
+            margin: 20px 0;
 
             color: #8b6f65;
 
@@ -696,6 +761,93 @@
                 0 3px 0
                 rgba(139, 111, 101, 0.08);
 
+            opacity: 0;
+
+            transform:
+                scale(0.5)
+                translateY(20px);
+
+        }
+
+
+        .reward.revealed {
+
+            animation:
+                rewardReveal 0.9s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                forwards;
+
+        }
+
+
+        @keyframes rewardReveal {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.5)
+                    translateY(20px);
+
+            }
+
+            55% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.12)
+                    translateY(-4px);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .reward-message {
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease;
+
+        }
+
+
+        .reward-message.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        .reveal-button {
+
+            margin-top: 10px;
+
+        }
+
+
+        .reveal-button.hidden {
+
+            display: none;
+
         }
 
 
@@ -708,7 +860,9 @@
             display: inline-block;
 
             animation:
-                heartbeat 1.5s ease-in-out infinite;
+                heartbeat 1.5s
+                ease-in-out
+                infinite;
 
         }
 
@@ -717,11 +871,15 @@
 
             0%,
             100% {
+
                 transform: scale(1);
+
             }
 
             50% {
+
                 transform: scale(1.15);
+
             }
 
         }
@@ -746,7 +904,9 @@
             line-height: 1;
 
             animation:
-                confettiFall 4s linear forwards;
+                confettiFall 4s
+                linear
+                forwards;
 
         }
 
@@ -756,7 +916,11 @@
             0% {
 
                 transform:
-                    translate3d(0, 0, 0)
+                    translate3d(
+                        0,
+                        0,
+                        0
+                    )
                     rotate(0deg);
 
                 opacity: 1;
@@ -784,7 +948,9 @@
            REDUCED MOTION
         ========================================================= */
 
-        @media (prefers-reduced-motion: reduce) {
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
 
             *,
             *::before,
@@ -792,11 +958,14 @@
 
                 scroll-behavior: auto !important;
 
-                animation-duration: 0.01ms !important;
+                animation-duration:
+                    0.01ms !important;
 
-                animation-iteration-count: 1 !important;
+                animation-iteration-count:
+                    1 !important;
 
-                transition-duration: 0.01ms !important;
+                transition-duration:
+                    0.01ms !important;
 
             }
 
@@ -818,7 +987,8 @@
 
             .card {
 
-                padding: 28px 18px;
+                padding:
+                    28px 18px;
 
                 border-radius: 24px;
 
@@ -907,7 +1077,8 @@
 
                 margin-top: 18px;
 
-                padding: 13px 20px;
+                padding:
+                    13px 20px;
 
                 font-size: 1rem;
 
@@ -916,7 +1087,8 @@
 
             .answer {
 
-                padding: 14px 16px;
+                padding:
+                    14px 16px;
 
                 font-size: 0.95rem;
 
@@ -930,20 +1102,30 @@
             }
 
 
+            .reveal-area {
+
+                margin: 20px 0 5px;
+
+                padding:
+                    20px 10px;
+
+            }
+
+
+            .reward {
+
+                margin: 15px 0;
+
+                font-size: 4rem;
+
+            }
+
+
             #reward h1 {
 
                 margin-bottom: 8px;
 
                 font-size: 1.9rem;
-
-            }
-
-
-            #reward .reward {
-
-                margin: 12px 0;
-
-                font-size: 4rem;
 
             }
 
@@ -992,6 +1174,7 @@
 
 
     <main class="card">
+
 
         <!-- =====================================================
              STARTSEITE
@@ -1271,33 +1454,72 @@
             </div>
 
 
-            <p>
-                Wir wünschen Euch von Herzen
-                ganz viel Liebe, Glück, Abenteuer
-                und unzählige wunderschöne
-                gemeinsame Momente.
-            </p>
+            <div class="gift-intro">
+
+                <p>
+                    Wir wünschen Euch von Herzen
+                    ganz viel Liebe, Glück, Abenteuer
+                    und unzählige wunderschöne
+                    gemeinsame Momente.
+                </p>
 
 
-            <p>
-                Und für den einen oder anderen
-                davon gibt es von uns …
-            </p>
+                <p>
+                    Und für den einen oder anderen
+                    davon gibt es von uns …
+                </p>
 
-
-            <div
-                class="reward"
-                aria-label="350 Euro"
-            >
-                350 €
             </div>
 
 
-            <p>
-                <strong>
-                    Auf Euch! ❤️
-                </strong>
-            </p>
+            <!-- =================================================
+                 GESCHENK-REVEAL
+            ================================================== -->
+
+            <div
+                class="reveal-area"
+                id="revealArea"
+            >
+
+                <div class="reveal-label">
+                    Euer Geschenk
+                </div>
+
+
+                <div
+                    id="rewardAmount"
+                    class="reward"
+                    aria-live="polite"
+                    aria-hidden="true"
+                >
+                    350 €
+                </div>
+
+
+                <button
+                    id="revealButton"
+                    class="button reveal-button"
+                    type="button"
+                >
+                    Geschenk enthüllen ✨
+                </button>
+
+
+                <div
+                    id="rewardMessage"
+                    class="reward-message"
+                    aria-live="polite"
+                >
+
+                    <p>
+                        <strong>
+                            Auf Euch! ❤️
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
 
 
             <div
@@ -1339,6 +1561,7 @@
                 ],
 
                 correct: 1
+
             },
 
 
@@ -1353,6 +1576,7 @@
                 ],
 
                 correct: 0
+
             },
 
 
@@ -1367,6 +1591,7 @@
                 ],
 
                 correct: 0
+
             },
 
 
@@ -1381,6 +1606,7 @@
                 ],
 
                 correct: 2
+
             },
 
 
@@ -1395,6 +1621,7 @@
                 ],
 
                 correct: 2
+
             },
 
 
@@ -1409,6 +1636,7 @@
                 ],
 
                 correct: 1
+
             },
 
 
@@ -1423,6 +1651,7 @@
                 ],
 
                 correct: 0
+
             },
 
 
@@ -1437,6 +1666,7 @@
                 ],
 
                 correct: 1
+
             }
 
         ];
@@ -1467,11 +1697,16 @@
         const rewardPage =
             document.getElementById("reward");
 
+
         const startButton =
             document.getElementById("startButton");
 
         const rewardButton =
             document.getElementById("rewardButton");
+
+        const revealButton =
+            document.getElementById("revealButton");
+
 
         const questionNumber =
             document.getElementById("questionNumber");
@@ -1490,6 +1725,13 @@
 
         const progressContainer =
             document.querySelector(".progress");
+
+
+        const rewardAmount =
+            document.getElementById("rewardAmount");
+
+        const rewardMessage =
+            document.getElementById("rewardMessage");
 
 
         /* =========================================================
@@ -1520,8 +1762,10 @@
             const total =
                 questions.length;
 
+
             const progress =
-                ((currentQuestion + 1) / total) * 100;
+                ((currentQuestion + 1) / total)
+                * 100;
 
 
             progressBar.style.width =
@@ -1530,7 +1774,9 @@
 
             progressContainer.setAttribute(
                 "aria-valuenow",
-                String(Math.round(progress))
+                String(
+                    Math.round(progress)
+                )
             );
 
         }
@@ -1549,12 +1795,6 @@
             showPage(quizPage);
 
             showQuestion();
-
-            requestAnimationFrame(function () {
-
-                questionElement.focus?.();
-
-            });
 
         }
 
@@ -1616,6 +1856,7 @@
                     button.dataset.answerIndex =
                         String(index);
 
+
                     button.addEventListener(
                         "click",
                         function () {
@@ -1626,14 +1867,18 @@
                     );
 
 
-                    answersContainer.appendChild(button);
+                    answersContainer.appendChild(
+                        button
+                    );
 
                 }
             );
 
 
             const firstAnswer =
-                answersContainer.querySelector(".answer");
+                answersContainer.querySelector(
+                    ".answer"
+                );
 
 
             if (firstAnswer) {
@@ -1649,10 +1894,14 @@
            ANTWORT PRÜFEN
         ========================================================= */
 
-        function checkAnswer(selectedAnswer) {
+        function checkAnswer(
+            selectedAnswer
+        ) {
 
             if (isAnswerLocked) {
+
                 return;
+
             }
 
 
@@ -1661,12 +1910,16 @@
 
 
             if (!current) {
+
                 return;
+
             }
 
 
             const answerButtons =
-                answersContainer.querySelectorAll(".answer");
+                answersContainer.querySelectorAll(
+                    ".answer"
+                );
 
 
             const selectedButton =
@@ -1674,11 +1927,16 @@
 
 
             if (!selectedButton) {
+
                 return;
+
             }
 
 
-            if (selectedAnswer === current.correct) {
+            if (
+                selectedAnswer ===
+                current.correct
+            ) {
 
                 isAnswerLocked = true;
 
@@ -1718,7 +1976,9 @@
 
                             showQuestion();
 
-                        } else {
+                        }
+
+                        else {
 
                             showSuccess();
 
@@ -1727,6 +1987,7 @@
                     },
                     800
                 );
+
 
                 return;
 
@@ -1774,12 +2035,83 @@
 
 
         /* =========================================================
-           BELOHNUNG
+           BELOHNUNG ANZEIGEN
         ========================================================= */
 
         function showReward() {
 
             showPage(rewardPage);
+
+
+            /*
+             * Wichtig:
+             * Der Geldbetrag wird bewusst NICHT direkt angezeigt.
+             * Die Enthüllung erfolgt erst nach Klick.
+             */
+
+            rewardAmount.classList.remove(
+                "revealed"
+            );
+
+
+            rewardAmount.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            rewardMessage.classList.remove(
+                "visible"
+            );
+
+
+            revealButton.classList.remove(
+                "hidden"
+            );
+
+        }
+
+
+        /* =========================================================
+           GESCHENK ENTHÜLLEN
+        ========================================================= */
+
+        function revealGift() {
+
+            revealButton.classList.add(
+                "hidden"
+            );
+
+
+            rewardAmount.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            rewardAmount.classList.add(
+                "revealed"
+            );
+
+
+            window.setTimeout(
+                function () {
+
+                    rewardMessage.classList.add(
+                        "visible"
+                    );
+
+                },
+                650
+            );
+
+
+            /*
+             * Kleine Party-Explosion passend
+             * zur Geschenkenthüllung.
+             */
+
+            createRevealConfetti();
 
         }
 
@@ -1791,6 +2123,7 @@
         function createConfetti() {
 
             const symbols = [
+
                 "🥂",
                 "✨",
                 "🎉",
@@ -1798,6 +2131,7 @@
                 "🎊",
                 "💍",
                 "🎈"
+
             ];
 
 
@@ -1851,7 +2185,9 @@
                 );
 
 
-                document.body.appendChild(confetti);
+                document.body.appendChild(
+                    confetti
+                );
 
 
                 window.setTimeout(
@@ -1861,6 +2197,94 @@
 
                     },
                     6000
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           KONFETTI FÜR GESCHENK-REVEAL
+        ========================================================= */
+
+        function createRevealConfetti() {
+
+            const symbols = [
+
+                "💶",
+                "✨",
+                "🥂",
+                "🎉",
+                "🎊",
+                "💕",
+                "🎈"
+
+            ];
+
+
+            const amount = 25;
+
+
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
+
+                const confetti =
+                    document.createElement("span");
+
+
+                confetti.className =
+                    "confetti";
+
+
+                confetti.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+
+                confetti.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random()
+                            * symbols.length
+                        )
+                    ];
+
+
+                confetti.style.left =
+                    `${20 + Math.random() * 60}vw`;
+
+
+                confetti.style.animationDelay =
+                    `${Math.random() * 0.5}s`;
+
+
+                confetti.style.fontSize =
+                    `${14 + Math.random() * 16}px`;
+
+
+                confetti.style.setProperty(
+                    "--drift",
+                    `${-150 + Math.random() * 300}px`
+                );
+
+
+                document.body.appendChild(
+                    confetti
+                );
+
+
+                window.setTimeout(
+                    function () {
+
+                        confetti.remove();
+
+                    },
+                    5000
                 );
 
             }
@@ -1881,6 +2305,12 @@
         rewardButton.addEventListener(
             "click",
             showReward
+        );
+
+
+        revealButton.addEventListener(
+            "click",
+            revealGift
         );
 
     </script>
