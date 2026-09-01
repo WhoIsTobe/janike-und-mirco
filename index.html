@@ -37,13 +37,18 @@
             background:
                 radial-gradient(
                     circle at 20% 20%,
-                    rgba(255,255,255,0.8),
+                    rgba(255,255,255,0.85),
                     transparent 30%
                 ),
                 radial-gradient(
                     circle at 80% 80%,
-                    rgba(255,220,220,0.5),
+                    rgba(255,220,220,0.55),
                     transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(205,220,190,0.45),
+                    transparent 35%
                 ),
                 #e9eee4;
 
@@ -60,60 +65,85 @@
 
 
         /* =========================
-           DEKORATIVE BLÜTEN
+           DEKORATIVE PARTY-ELEMENTE
         ========================= */
 
-        .flower {
+        .party {
 
             position: fixed;
 
             font-size: 28px;
 
-            opacity: 0.55;
+            opacity: 0.65;
 
             pointer-events: none;
 
             animation:
-                floatFlower 8s ease-in-out infinite;
+                partyFloat 7s ease-in-out infinite;
+
+            z-index: 0;
 
         }
 
-        .flower.one {
-            top: 8%;
+
+        .party.one {
+
+            top: 7%;
+
+            left: 7%;
+
+        }
+
+
+        .party.two {
+
+            top: 15%;
+
+            right: 7%;
+
+            animation-delay: 1.5s;
+
+        }
+
+
+        .party.three {
+
+            bottom: 10%;
+
             left: 8%;
+
+            animation-delay: 3s;
+
         }
 
-        .flower.two {
-            top: 18%;
+
+        .party.four {
+
+            bottom: 15%;
+
             right: 8%;
-            animation-delay: 2s;
-        }
 
-        .flower.three {
-            bottom: 12%;
-            left: 10%;
-            animation-delay: 4s;
-        }
+            animation-delay: 4.5s;
 
-        .flower.four {
-            bottom: 18%;
-            right: 10%;
-            animation-delay: 1s;
         }
 
 
-        @keyframes floatFlower {
+        @keyframes partyFloat {
 
             0%, 100% {
+
                 transform:
                     translateY(0)
-                    rotate(0deg);
+                    rotate(-5deg);
+
             }
 
             50% {
+
                 transform:
-                    translateY(-12px)
+                    translateY(-15px)
                     rotate(8deg);
+
             }
 
         }
@@ -132,7 +162,7 @@
             padding: 50px 40px;
 
             background:
-                rgba(255, 253, 248, 0.94);
+                rgba(255, 253, 248, 0.95);
 
             border:
                 1px solid
@@ -141,6 +171,7 @@
             border-radius: 35px;
 
             box-shadow:
+
                 0 20px 60px
                 rgba(70, 80, 65, 0.15),
 
@@ -150,6 +181,8 @@
             position: relative;
 
             overflow: hidden;
+
+            z-index: 1;
 
         }
 
@@ -181,9 +214,9 @@
 
         .flowers {
 
-            font-size: 2rem;
+            font-size: 1.8rem;
 
-            letter-spacing: 8px;
+            letter-spacing: 6px;
 
             margin-bottom: 15px;
 
@@ -570,11 +603,17 @@
         @keyframes heartbeat {
 
             0%, 100% {
-                transform: scale(1);
+
+                transform:
+                    scale(1);
+
             }
 
             50% {
-                transform: scale(1.15);
+
+                transform:
+                    scale(1.15);
+
             }
 
         }
@@ -596,6 +635,8 @@
 
             animation:
                 confettiFall 4s linear forwards;
+
+            z-index: 10;
 
         }
 
@@ -659,9 +700,54 @@
             }
 
 
+            .party {
+
+                font-size: 22px;
+
+                opacity: 0.5;
+
+            }
+
+
+            .party.one {
+
+                top: 4%;
+
+                left: 4%;
+
+            }
+
+
+            .party.two {
+
+                top: 9%;
+
+                right: 4%;
+
+            }
+
+
+            .party.three {
+
+                bottom: 5%;
+
+                left: 4%;
+
+            }
+
+
+            .party.four {
+
+                bottom: 8%;
+
+                right: 4%;
+
+            }
+
+
             .flowers {
 
-                font-size: 1.3rem;
+                font-size: 1.25rem;
 
                 letter-spacing: 3px;
 
@@ -814,16 +900,16 @@
 
 
     <!-- =========================
-         DEKORATIVE BLÜTEN
+         DEKORATIVE PARTY-ELEMENTE
     ========================== -->
 
-    <div class="flower one">🌸</div>
+    <div class="party one">🥂</div>
 
-    <div class="flower two">🌿</div>
+    <div class="party two">✨</div>
 
-    <div class="flower three">🌼</div>
+    <div class="party three">🎉</div>
 
-    <div class="flower four">🌸</div>
+    <div class="party four">💕</div>
 
 
 
@@ -841,16 +927,19 @@
         <div id="start">
 
             <div class="flowers">
-                🌿 🌸 💍 🌸 🌿
+                🥂 ✨ 💍 ✨ 🥂
             </div>
+
 
             <div class="small-title">
                 Ein kleines Abenteuer für
             </div>
 
+
             <h1>
                 Janike & Mirco
             </h1>
+
 
             <h2>
                 Das kleine Hochzeitsrätsel
@@ -870,7 +959,7 @@
 
 
             <div class="divider">
-                ✿
+                ✨
             </div>
 
 
@@ -895,7 +984,7 @@
 
 
             <p>
-                <strong>Seid ihr bereit?</strong>
+                <strong>Seid ihr bereit?</strong> 🥂
             </p>
 
 
@@ -903,7 +992,7 @@
                 class="button"
                 onclick="startQuiz()">
 
-                Das Rätsel beginnt 🌸
+                Das Rätsel beginnt 🎉
 
             </button>
 
@@ -917,8 +1006,9 @@
 
         <div id="quiz" class="hidden">
 
+
             <div class="flowers">
-                🌸 🌿 🌸
+                🥂 ✨ 💕
             </div>
 
 
@@ -955,13 +1045,14 @@
 
         <div id="success" class="hidden">
 
+
             <div class="success-icon">
                 🎉
             </div>
 
 
             <div class="flowers">
-                🌸 🌿 🌸
+                🥂 ✨ 🎊
             </div>
 
 
@@ -983,7 +1074,7 @@
 
 
             <div class="divider">
-                ✿
+                ✨
             </div>
 
 
@@ -1012,6 +1103,7 @@
 
         <div id="reward" class="hidden">
 
+
             <div class="success-icon">
                 🥂
             </div>
@@ -1028,7 +1120,7 @@
 
 
             <div class="divider">
-                ✿
+                ✨
             </div>
 
 
@@ -1059,7 +1151,7 @@
 
 
             <p>
-                🌿 🌸 ❤️ 🌸 🌿
+                🥂 ✨ ❤️ ✨ 🥂
             </p>
 
         </div>
@@ -1282,7 +1374,7 @@
             ) {
 
                 message.textContent =
-                    "🌸 Richtig! Sehr gut!";
+                    "✨ Richtig! Sehr gut! 🥂";
 
 
                 message.className =
@@ -1336,7 +1428,7 @@
             else {
 
                 message.textContent =
-                    "🌿 Das war leider nicht richtig. Versuch es noch einmal! 😉";
+                    "✨ Das war leider nicht richtig. Versuch es noch einmal! 😉";
 
 
                 message.className =
@@ -1380,11 +1472,13 @@
 
             const symbols = [
 
-                "🌸",
-                "🌿",
+                "🥂",
                 "✨",
+                "🎉",
                 "💕",
-                "🌼"
+                "🎊",
+                "🌿",
+                "💍"
 
             ];
 
