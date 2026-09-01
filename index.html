@@ -22,7 +22,7 @@
         .card {
             max-width: 650px;
             margin: 30px;
-            padding: 50px 35px;
+            padding: 45px 30px;
             background: #fffdf8;
             border-radius: 25px;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
@@ -34,7 +34,7 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.7rem;
             margin-bottom: 10px;
             color: #68745c;
         }
@@ -46,8 +46,14 @@
             margin-bottom: 30px;
         }
 
+        h3 {
+            font-size: 1.5rem;
+            color: #68745c;
+            margin-bottom: 25px;
+        }
+
         p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.7;
         }
 
@@ -57,20 +63,61 @@
             padding: 14px 30px;
             background: #8b9a7a;
             color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 30px;
             font-size: 1.1rem;
+            cursor: pointer;
+            font-family: Georgia, serif;
         }
 
         .button:hover {
             background: #748365;
+        }
+
+        .answer {
+            display: block;
+            width: 100%;
+            margin: 12px 0;
+            padding: 14px;
+            box-sizing: border-box;
+            background: #f5f1e8;
+            border: 2px solid #ddd6c8;
+            border-radius: 15px;
+            color: #4b5145;
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .answer:hover {
+            background: #ebe5d8;
+        }
+
+        #message {
+            margin-top: 20px;
+            min-height: 30px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .reward {
+            font-size: 3.5rem;
+            color: #8b6f65;
+            margin: 25px 0;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
+<div class="card">
+
+    <!-- STARTSEITE -->
+    <div id="start">
 
         <div class="flowers">🌿 🌸 💍 🌸 🌿</div>
 
@@ -108,11 +155,241 @@
             <strong>Seid ihr bereit?</strong>
         </p>
 
-        <a href="#" class="button">
+        <button class="button" onclick="startQuiz()">
             Das Rätsel beginnt 🌸
-        </a>
+        </button>
 
     </div>
+
+
+    <!-- QUIZ -->
+    <div id="quiz" class="hidden">
+
+        <div class="flowers">🌸 🌿 🌸</div>
+
+        <p id="questionNumber"></p>
+
+        <h3 id="question"></h3>
+
+        <div id="answers"></div>
+
+        <div id="message"></div>
+
+    </div>
+
+
+    <!-- ERFOLG -->
+    <div id="success" class="hidden">
+
+        <div class="flowers">🎉 🌸 🎉</div>
+
+        <h1>Geschafft!</h1>
+
+        <p>
+            Janike & Mirco,
+        </p>
+
+        <p>
+            ihr habt tatsächlich alle drei Fragen
+            richtig beantwortet! ❤️
+        </p>
+
+        <p>
+            Damit habt ihr euch verdient,
+            das Geheimnis eures Geschenks zu lüften.
+        </p>
+
+        <button class="button" onclick="showReward()">
+            Geheimnis lüften 🎁
+        </button>
+
+    </div>
+
+
+    <!-- BELOHNUNG -->
+    <div id="reward" class="hidden">
+
+        <div class="flowers">🌿 🌸 🥂 🌸 🌿</div>
+
+        <h1>Euer Hochzeitsgeschenk</h1>
+
+        <p>
+            Für euch und eure gemeinsame Zukunft
+            gibt es von Herzen:
+        </p>
+
+        <div class="reward">
+            350 €
+        </div>
+
+        <p>
+            Wir wünschen euch unendlich viele
+            wunderschöne gemeinsame Momente,
+            ganz viel Liebe und natürlich
+            jede Menge Grund zum Feiern! ❤️
+        </p>
+
+        <p>
+            🥂 Auf euch, Janike & Mirco! 🥂
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+     * HIER SIND UNSERE DREI TESTFRAGEN.
+     *
+     * Später ersetzen wir diese durch
+     * eure echten Fragen.
+     */
+
+    const questions = [
+
+        {
+            question: "Welche Farbe hat das Gras?",
+            answers: [
+                "Blau",
+                "Grün",
+                "Pink",
+                "Lila"
+            ],
+            correct: 1
+        },
+
+        {
+            question: "Wie viele Fragen gibt es in diesem Rätsel?",
+            answers: [
+                "Eine",
+                "Zwei",
+                "Drei",
+                "Vier"
+            ],
+            correct: 2
+        },
+
+        {
+            question: "Wie hoch ist euer Geschenk?",
+            answers: [
+                "150 €",
+                "250 €",
+                "300 €",
+                "350 €"
+            ],
+            correct: 3
+        }
+
+    ];
+
+
+    let currentQuestion = 0;
+
+
+    function startQuiz() {
+
+        document.getElementById("start").classList.add("hidden");
+        document.getElementById("quiz").classList.remove("hidden");
+
+        showQuestion();
+
+    }
+
+
+    function showQuestion() {
+
+        const q = questions[currentQuestion];
+
+        document.getElementById("questionNumber").textContent =
+            "Frage " + (currentQuestion + 1) + " von " + questions.length;
+
+        document.getElementById("question").textContent =
+            q.question;
+
+        const answersContainer =
+            document.getElementById("answers");
+
+        answersContainer.innerHTML = "";
+
+        document.getElementById("message").textContent = "";
+
+
+        q.answers.forEach(function(answer, index) {
+
+            const button = document.createElement("button");
+
+            button.textContent = answer;
+
+            button.className = "answer";
+
+            button.onclick = function() {
+                checkAnswer(index);
+            };
+
+            answersContainer.appendChild(button);
+
+        });
+
+    }
+
+
+    function checkAnswer(selectedAnswer) {
+
+        const q = questions[currentQuestion];
+
+        const message =
+            document.getElementById("message");
+
+
+        if (selectedAnswer === q.correct) {
+
+            message.textContent = "🌸 Richtig! Sehr gut!";
+
+            currentQuestion++;
+
+
+            setTimeout(function() {
+
+                if (currentQuestion < questions.length) {
+
+                    showQuestion();
+
+                } else {
+
+                    document.getElementById("quiz")
+                        .classList.add("hidden");
+
+                    document.getElementById("success")
+                        .classList.remove("hidden");
+
+                }
+
+            }, 800);
+
+
+        } else {
+
+            message.textContent =
+                "🌿 Das war leider nicht richtig. Versuch es noch einmal! 😉";
+
+        }
+
+    }
+
+
+    function showReward() {
+
+        document.getElementById("success")
+            .classList.add("hidden");
+
+        document.getElementById("reward")
+            .classList.remove("hidden");
+
+    }
+
+</script>
 
 </body>
 </html>
