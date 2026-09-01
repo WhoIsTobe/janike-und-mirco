@@ -10,14 +10,65 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+
+    <!-- =========================================================
+         PRIVACY / SUCHMASCHINEN
+    ========================================================== -->
+
+    <!--
+        Die Seite soll nicht in Suchmaschinen erscheinen.
+        Über die direkte URL bleibt sie weiterhin erreichbar.
+    -->
+
+    <meta
+        name="robots"
+        content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    >
+
+
+    <!--
+        Beim Verlassen der Seite wird die URL dieser Seite
+        nicht als Referrer an andere Websites übertragen.
+    -->
+
+    <meta
+        name="referrer"
+        content="no-referrer"
+    >
+
+
+    <!-- =========================================================
+         CONTENT SECURITY POLICY
+    ========================================================== -->
+
+    <!--
+        Die Seite verwendet ausschließlich eigenen HTML-, CSS-
+        und JavaScript-Code.
+
+        Externe Verbindungen, Frames, Formulare, Plugins und
+        sonstige externe Inhalte werden eingeschränkt.
+    -->
+
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests;"
+    >
+
+
+    <!-- =========================================================
+         DARSTELLUNG
+    ========================================================== -->
+
     <meta
         name="theme-color"
         content="#e8ede3"
     >
 
+
     <title>
-        Janike & Mirco – Euer Hochzeitsrätsel
+        Janike &amp; Mirco – Euer Hochzeitsrätsel
     </title>
+
 
     <style>
 
@@ -73,12 +124,16 @@
         *,
         *::before,
         *::after {
+
             box-sizing: border-box;
+
         }
 
 
         html {
+
             min-height: 100%;
+
         }
 
 
@@ -90,6 +145,7 @@
             min-height: 100dvh;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -127,7 +183,9 @@
 
 
         button {
+
             font: inherit;
+
         }
 
 
@@ -204,7 +262,9 @@
 
 
         .hidden {
+
             display: none !important;
+
         }
 
 
@@ -285,22 +345,30 @@
 
 
         .light:nth-child(2) {
+
             animation-delay: 0.4s;
+
         }
 
 
         .light:nth-child(3) {
+
             animation-delay: 0.8s;
+
         }
 
 
         .light:nth-child(4) {
+
             animation-delay: 1.2s;
+
         }
 
 
         .light:nth-child(5) {
+
             animation-delay: 1.6s;
+
         }
 
 
@@ -487,7 +555,9 @@
 
 
         strong {
+
             font-weight: 700;
+
         }
 
 
@@ -568,7 +638,7 @@
 
 
         /* =========================================================
-           SIGNATUR AUF DER GESCHENKSEITE
+           SIGNATUR
         ========================================================= */
 
         .gift-signature {
@@ -660,14 +730,10 @@
 
         .button {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            align-items: center;
+            justify-content: center;
 
             min-height: 52px;
 
@@ -772,23 +838,17 @@
 
         #questionNumber {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            align-self:
-                center;
+            align-self: center;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            align-items: center;
+            justify-content: center;
 
             padding:
                 7px 16px;
 
-            border-radius:
-                999px;
+            border-radius: 999px;
 
             background:
                 #f1e9e1;
@@ -796,11 +856,9 @@
             color:
                 var(--rose);
 
-            font-size:
-                0.82rem;
+            font-size: 0.82rem;
 
-            letter-spacing:
-                1px;
+            letter-spacing: 1px;
 
         }
 
@@ -823,7 +881,8 @@
 
             border-radius: 999px;
 
-            background: #e8e3d9;
+            background:
+                #e8e3d9;
 
         }
 
@@ -934,16 +993,12 @@
 
         .answer-letter {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
             flex: 0 0 auto;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            align-items: center;
+            justify-content: center;
 
             width: 33px;
             height: 33px;
@@ -957,7 +1012,8 @@
             background:
                 rgba(255, 253, 248, 0.9);
 
-            color: #9a7b72;
+            color:
+                #9a7b72;
 
             font-size: 0.78rem;
 
@@ -982,17 +1038,12 @@
             width: 25px;
             height: 25px;
 
-            align-items:
-                center;
+            align-items: center;
+            justify-content: center;
 
-            justify-content:
-                center;
+            border-radius: 50%;
 
-            border-radius:
-                50%;
-
-            font-weight:
-                bold;
+            font-weight: bold;
 
         }
 
@@ -1026,8 +1077,7 @@
         .answer.correct-answer
         .answer-status {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
             background:
                 var(--success);
@@ -1397,8 +1447,7 @@
 
         .heart {
 
-            display:
-                inline-block;
+            display: inline-block;
 
             animation:
                 heartbeat
@@ -1435,17 +1484,13 @@
 
         .confetti {
 
-            position:
-                fixed;
+            position: fixed;
 
-            top:
-                -40px;
+            top: -40px;
 
-            z-index:
-                100;
+            z-index: 100;
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
             line-height: 1;
 
