@@ -12,63 +12,74 @@
 
     <meta
         name="theme-color"
-        content="#e9eee4"
+        content="#e8ede3"
     >
 
     <title>
-        Janike und Mirco – Euer kleines Hochzeitsrätsel
+        Janike & Mirco – Euer Hochzeitsrätsel
     </title>
 
     <style>
 
         /* =========================================================
-           DESIGN TOKENS
+           DESIGN SYSTEM
         ========================================================= */
 
         :root {
 
-            --color-background: #e9eee4;
-            --color-surface: rgba(255, 253, 248, 0.96);
+            --background: #e8ede3;
+            --surface: rgba(255, 253, 248, 0.97);
 
-            --color-primary: #66755d;
-            --color-primary-dark: #56654e;
+            --olive: #68765f;
+            --olive-dark: #56634f;
 
-            --color-secondary: #a17f76;
-            --color-accent: #c19b91;
+            --rose: #a78379;
+            --champagne: #c5aa7a;
 
-            --color-text: #4d5749;
-            --color-text-muted: #718064;
+            --text: #4d5749;
+            --text-soft: #718064;
 
-            --color-border: rgba(139, 154, 122, 0.25);
-            --color-answer-border: #ddd7ca;
+            --border:
+                rgba(139, 154, 122, 0.24);
 
-            --color-answer-background: #faf8f2;
-            --color-answer-hover: #f2eee4;
+            --inner-border:
+                rgba(197, 170, 122, 0.27);
 
-            --color-success: #718264;
-            --color-error: #a16f67;
+            --answer-background:
+                rgba(250, 248, 242, 0.92);
 
-            --shadow-card:
-                0 20px 60px rgba(70, 80, 65, 0.15),
-                0 3px 12px rgba(70, 80, 65, 0.08);
+            --answer-border:
+                #ddd7ca;
 
-            --radius-card: 35px;
-            --radius-inner: 27px;
-            --radius-button: 40px;
+            --answer-hover:
+                #f3efe5;
+
+            --success: #718264;
+            --success-background: #edf3e9;
+
+            --error: #a16f67;
+            --error-background: #f7ece9;
 
             --font-serif:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.4s ease;
+            --shadow-card:
+                0 20px 55px
+                rgba(70, 80, 65, 0.11),
+
+                0 4px 14px
+                rgba(70, 80, 65, 0.05);
+
+            --transition-fast:
+                0.2s ease;
 
         }
 
 
         /* =========================================================
-           RESET / BASIS
+           RESET
         ========================================================= */
 
         *,
@@ -92,38 +103,39 @@
 
             display: flex;
 
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
-            padding: 25px;
+            padding: 28px;
+
+            overflow-x: hidden;
+
+            color: var(--text);
+
+            font-family:
+                var(--font-serif);
 
             background:
 
                 radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255, 255, 255, 0.85),
-                    transparent 30%
+                    circle at 15% 15%,
+                    rgba(255, 255, 255, 0.9),
+                    transparent 28%
                 ),
 
                 radial-gradient(
-                    circle at 80% 80%,
-                    rgba(255, 220, 220, 0.55),
-                    transparent 30%
+                    circle at 87% 22%,
+                    rgba(232, 205, 199, 0.35),
+                    transparent 27%
                 ),
 
                 radial-gradient(
                     circle at 50% 100%,
-                    rgba(205, 220, 190, 0.45),
-                    transparent 35%
+                    rgba(187, 204, 174, 0.45),
+                    transparent 34%
                 ),
 
-                var(--color-background);
-
-            font-family: var(--font-serif);
-
-            color: var(--color-text);
-
-            overflow-x: hidden;
+                var(--background);
 
         }
 
@@ -139,27 +151,38 @@
 
         .card {
 
-            width: 100%;
-            max-width: 680px;
-
-            padding: 50px 40px;
-
             position: relative;
-
-            background: var(--color-surface);
-
-            border: 1px solid var(--color-border);
-
-            border-radius: var(--radius-card);
-
-            box-shadow: var(--shadow-card);
-
-            overflow: hidden;
 
             z-index: 1;
 
+            width: 100%;
+            max-width: 680px;
+
+            padding:
+                50px 42px
+                42px;
+
+            overflow: hidden;
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 28px;
+
+            box-shadow:
+                var(--shadow-card);
+
         }
 
+
+        /*
+         * Feiner Innenrahmen:
+         * soll an hochwertige Hochzeitspapeterie erinnern.
+         */
 
         .card::before {
 
@@ -167,15 +190,15 @@
 
             position: absolute;
 
-            inset: 12px;
+            inset: 11px;
+
+            pointer-events: none;
 
             border:
                 1px solid
-                rgba(154, 123, 114, 0.18);
+                var(--inner-border);
 
-            border-radius: var(--radius-inner);
-
-            pointer-events: none;
+            border-radius: 20px;
 
         }
 
@@ -190,34 +213,154 @@
 
             z-index: 2;
 
+            text-align: center;
+
         }
 
 
         .hidden {
-
             display: none !important;
+        }
+
+
+        /* =========================================================
+           LICHTERKETTE
+        ========================================================= */
+
+        .string-lights {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 13px;
+
+            margin-bottom: 24px;
+
+            color: var(--champagne);
+
+            user-select: none;
+
+        }
+
+
+        .string-lights::before,
+        .string-lights::after {
+
+            content: "";
+
+            width: 55px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(197, 170, 122, 0.45)
+                );
+
+        }
+
+
+        .string-lights::after {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(197, 170, 122, 0.45),
+                    transparent
+                );
+
+        }
+
+
+        .light {
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #d8bc82;
+
+            box-shadow:
+                0 0 8px
+                rgba(216, 188, 130, 0.55);
+
+            animation:
+                glow 2.8s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        .light:nth-of-type(2) {
+            animation-delay: 0.4s;
+        }
+
+
+        .light:nth-of-type(3) {
+            animation-delay: 0.8s;
+        }
+
+
+        .light:nth-of-type(4) {
+            animation-delay: 1.2s;
+        }
+
+
+        .light:nth-of-type(5) {
+            animation-delay: 1.6s;
+        }
+
+
+        @keyframes glow {
+
+            0%,
+            100% {
+
+                opacity: 0.55;
+
+                transform:
+                    scale(0.9);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.15);
+
+            }
 
         }
 
 
         /* =========================================================
-           PARTY-DEKORATION
+           DEKORATION
         ========================================================= */
 
         .party-decoration {
 
             display: flex;
 
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
-            gap: 10px;
+            gap: 12px;
 
-            margin-bottom: 16px;
+            margin-bottom: 15px;
 
-            font-size: 1.75rem;
+            color: var(--champagne);
 
-            letter-spacing: 2px;
+            font-size: 1.35rem;
 
             line-height: 1;
 
@@ -226,26 +369,16 @@
         }
 
 
-        .party-decoration .sparkle {
+        .sparkle {
 
             display: inline-block;
 
+            color: var(--champagne);
+
             animation:
-                sparkle 2.4s ease-in-out infinite;
-
-        }
-
-
-        .party-decoration .sparkle:nth-child(2) {
-
-            animation-delay: 0.35s;
-
-        }
-
-
-        .party-decoration .sparkle:nth-child(4) {
-
-            animation-delay: 0.7s;
+                sparkle 2.5s
+                ease-in-out
+                infinite;
 
         }
 
@@ -255,17 +388,19 @@
             0%,
             100% {
 
-                transform: scale(1);
+                opacity: 0.6;
 
-                opacity: 0.85;
+                transform:
+                    scale(0.9);
 
             }
 
             50% {
 
-                transform: scale(1.15);
-
                 opacity: 1;
+
+                transform:
+                    scale(1.12);
 
             }
 
@@ -278,15 +413,15 @@
 
         .small-title {
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
 
-            color: var(--color-secondary);
+            color: var(--rose);
 
-            font-size: 0.75rem;
+            font-size: 0.73rem;
 
             font-weight: 600;
 
-            letter-spacing: 4px;
+            letter-spacing: 3.5px;
 
             text-transform: uppercase;
 
@@ -295,15 +430,18 @@
 
         h1 {
 
-            margin: 0 0 8px;
+            margin:
+                0 0 9px;
 
-            color: var(--color-primary);
+            color:
+                var(--olive);
 
-            font-size: clamp(
-                2.4rem,
-                8vw,
-                4rem
-            );
+            font-size:
+                clamp(
+                    2.5rem,
+                    8vw,
+                    4rem
+                );
 
             font-weight: normal;
 
@@ -314,11 +452,13 @@
 
         h2 {
 
-            margin: 0 0 35px;
+            margin:
+                0 0 32px;
 
-            color: var(--color-secondary);
+            color:
+                var(--rose);
 
-            font-size: 1.35rem;
+            font-size: 1.25rem;
 
             font-weight: normal;
 
@@ -329,30 +469,36 @@
 
         h3 {
 
-            margin: 0 0 30px;
+            margin:
+                0 0 28px;
 
-            color: var(--color-primary);
+            color:
+                var(--olive);
 
-            font-size: clamp(
-                1.3rem,
-                5vw,
-                1.7rem
-            );
+            font-size:
+                clamp(
+                    1.3rem,
+                    5vw,
+                    1.7rem
+                );
 
             font-weight: normal;
 
-            line-height: 1.4;
+            line-height: 1.45;
 
         }
 
 
         p {
 
-            margin: 14px 0;
+            margin:
+                14px 0;
 
-            font-size: 1.08rem;
+            font-size:
+                1.05rem;
 
-            line-height: 1.8;
+            line-height:
+                1.75;
 
         }
 
@@ -363,7 +509,7 @@
 
 
         /* =========================================================
-           TRENNER
+           DIVIDER
         ========================================================= */
 
         .divider {
@@ -372,11 +518,13 @@
 
             align-items: center;
 
-            gap: 15px;
+            gap: 16px;
 
-            margin: 30px 0;
+            margin:
+                28px 0;
 
-            color: var(--color-accent);
+            color:
+                var(--champagne);
 
         }
 
@@ -386,12 +534,113 @@
 
             content: "";
 
-            height: 1px;
-
             flex: 1;
 
+            height: 1px;
+
             background:
-                rgba(193, 155, 145, 0.35);
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(197, 170, 122, 0.45)
+                );
+
+        }
+
+
+        .divider::after {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(197, 170, 122, 0.45),
+                    transparent
+                );
+
+        }
+
+
+        /* =========================================================
+           STARTSEITE
+        ========================================================= */
+
+        .quiz-promise {
+
+            margin:
+                23px auto;
+
+            max-width:
+                400px;
+
+        }
+
+
+        .quiz-promise strong {
+
+            display: block;
+
+            margin:
+                4px 0;
+
+            color:
+                var(--olive);
+
+            font-size:
+                1.05rem;
+
+        }
+
+
+        .start-footer {
+
+            margin-top:
+                35px;
+
+            padding-top:
+                22px;
+
+            border-top:
+                1px solid
+                rgba(197, 170, 122, 0.2);
+
+        }
+
+
+        .wedding-line {
+
+            color:
+                var(--rose);
+
+            font-size:
+                0.72rem;
+
+            font-weight: 600;
+
+            letter-spacing:
+                2.5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .location-line {
+
+            margin-top:
+                7px;
+
+            color:
+                rgba(77, 87, 73, 0.62);
+
+            font-size:
+                0.66rem;
+
+            letter-spacing:
+                2.2px;
+
+            text-transform:
+                uppercase;
 
         }
 
@@ -402,68 +651,89 @@
 
         .button {
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            justify-content: center;
-            align-items: center;
+            align-items:
+                center;
 
-            width: auto;
+            justify-content:
+                center;
 
-            min-height: 52px;
+            min-height:
+                52px;
 
-            margin-top: 25px;
+            margin-top:
+                22px;
 
-            padding: 15px 32px;
+            padding:
+                15px 32px;
 
-            border: 0;
+            border:
+                0;
 
-            border-radius: var(--radius-button);
+            border-radius:
+                999px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #8b9a7a,
-                    #718264
+                    #899879,
+                    #6f8064
                 );
 
-            color: #ffffff;
-
-            font-family: var(--font-serif);
-
-            font-size: 1.05rem;
-
-            font-weight: 600;
-
-            cursor: pointer;
+            color:
+                #ffffff;
 
             box-shadow:
                 0 8px 18px
-                rgba(113, 130, 100, 0.25);
+                rgba(113, 130, 100, 0.21);
+
+            cursor:
+                pointer;
+
+            font-family:
+                var(--font-serif);
+
+            font-size:
+                1rem;
+
+            font-weight:
+                600;
 
             transition:
-                transform var(--transition-fast),
-                box-shadow var(--transition-fast),
-                filter var(--transition-fast);
+
+                transform
+                var(--transition-fast),
+
+                box-shadow
+                var(--transition-fast),
+
+                filter
+                var(--transition-fast);
 
         }
 
 
         .button:hover:not(:disabled) {
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
 
             box-shadow:
-                0 12px 25px
-                rgba(113, 130, 100, 0.3);
+                0 11px 24px
+                rgba(113, 130, 100, 0.27);
 
-            filter: brightness(1.03);
+            filter:
+                brightness(1.03);
 
         }
 
 
         .button:active:not(:disabled) {
 
-            transform: translateY(1px);
+            transform:
+                translateY(1px);
 
         }
 
@@ -473,43 +743,66 @@
 
             outline:
                 3px solid
-                rgba(161, 127, 118, 0.4);
+                rgba(197, 170, 122, 0.42);
 
-            outline-offset: 3px;
-
-        }
-
-
-        .button:disabled {
-
-            cursor: default;
-
-            opacity: 0.7;
+            outline-offset:
+                3px;
 
         }
 
 
         /* =========================================================
-           QUIZ
+           QUIZ-KOPF
         ========================================================= */
+
+        .quiz-names {
+
+            margin-bottom:
+                17px;
+
+            color:
+                var(--rose);
+
+            font-size:
+                0.75rem;
+
+            letter-spacing:
+                2.8px;
+
+            text-transform:
+                uppercase;
+
+        }
+
 
         #questionNumber {
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            padding: 7px 16px;
+            justify-content:
+                center;
 
-            border-radius: 20px;
+            padding:
+                7px 16px;
 
-            background: #f0e7df;
+            border-radius:
+                999px;
 
-            color: var(--color-secondary);
+            background:
+                #f1e9e1;
 
-            font-size: 0.85rem;
+            color:
+                var(--rose);
 
-            letter-spacing: 1px;
+            font-size:
+                0.82rem;
+
+            letter-spacing:
+                1px;
 
         }
 
@@ -520,35 +813,45 @@
 
         .progress {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 6px;
+            height:
+                5px;
 
-            margin: 25px 0 30px;
+            margin:
+                24px 0
+                30px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            background: #e8e3d9;
+            border-radius:
+                999px;
 
-            border-radius: 10px;
+            background:
+                #e8e3d9;
 
         }
 
 
         .progress-bar {
 
-            width: 0;
+            width:
+                0;
 
-            height: 100%;
+            height:
+                100%;
+
+            border-radius:
+                inherit;
 
             background:
                 linear-gradient(
                     90deg,
-                    #8b9a7a,
-                    #b7a98c
+                    var(--olive),
+                    var(--champagne)
                 );
-
-            border-radius: 10px;
 
             transition:
                 width 0.5s ease;
@@ -562,90 +865,256 @@
 
         .answers {
 
-            display: grid;
+            display:
+                grid;
 
-            gap: 12px;
+            gap:
+                11px;
 
         }
 
 
         .answer {
 
-            display: block;
+            position:
+                relative;
 
-            width: 100%;
+            display:
+                flex;
 
-            padding: 17px 20px;
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            width:
+                100%;
+
+            padding:
+                14px 17px;
 
             border:
                 1.5px solid
-                var(--color-answer-border);
+                var(--answer-border);
 
-            border-radius: 18px;
+            border-radius:
+                15px;
 
             background:
-                var(--color-answer-background);
+                var(--answer-background);
 
-            color: var(--color-text);
+            color:
+                var(--text);
 
-            font-family: var(--font-serif);
+            cursor:
+                pointer;
 
-            font-size: 1rem;
+            text-align:
+                left;
 
-            line-height: 1.45;
-
-            text-align: left;
-
-            cursor: pointer;
+            line-height:
+                1.45;
 
             transition:
-                background var(--transition-fast),
-                transform var(--transition-fast),
-                border-color var(--transition-fast),
-                box-shadow var(--transition-fast);
+
+                background
+                var(--transition-fast),
+
+                border-color
+                var(--transition-fast),
+
+                transform
+                var(--transition-fast),
+
+                box-shadow
+                var(--transition-fast);
 
         }
 
 
         .answer:hover:not(:disabled) {
 
-            background:
-                var(--color-answer-hover);
-
-            border-color: #a8b19d;
-
             transform:
                 translateY(-1px);
 
+            background:
+                var(--answer-hover);
+
+            border-color:
+                #a8b19d;
+
             box-shadow:
-                0 4px 10px
-                rgba(70, 80, 65, 0.06);
+                0 4px 11px
+                rgba(70, 80, 65, 0.055);
 
         }
 
 
-        .answer:disabled {
+        .answer-letter {
 
-            cursor: default;
+            display:
+                inline-flex;
+
+            flex:
+                0 0 auto;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            width:
+                33px;
+
+            height:
+                33px;
+
+            border:
+                1px solid
+                rgba(197, 170, 122, 0.55);
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255, 253, 248, 0.9);
+
+            color:
+                #9a7b72;
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .answer-text {
+
+            flex:
+                1;
+
+        }
+
+
+        .answer-status {
+
+            display:
+                none;
+
+            flex:
+                0 0 auto;
+
+            width:
+                25px;
+
+            height:
+                25px;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            font-weight:
+                bold;
 
         }
 
 
         .answer.correct-answer {
 
-            background: #edf3e9;
+            background:
+                var(--success-background);
 
-            border-color: #8b9a7a;
+            border-color:
+                #8b9a7a;
+
+        }
+
+
+        .answer.correct-answer
+        .answer-letter {
+
+            border-color:
+                #8b9a7a;
+
+            background:
+                #8b9a7a;
+
+            color:
+                #ffffff;
+
+        }
+
+
+        .answer.correct-answer
+        .answer-status {
+
+            display:
+                inline-flex;
+
+            background:
+                var(--success);
+
+            color:
+                white;
 
         }
 
 
         .answer.wrong-answer {
 
-            background: #f7ece9;
+            background:
+                var(--error-background);
 
-            border-color: #c49a91;
+            border-color:
+                #c49a91;
 
+            animation:
+                answerShake
+                0.36s ease;
+
+        }
+
+
+        @keyframes answerShake {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(0);
+
+            }
+
+            25% {
+
+                transform:
+                    translateX(-5px);
+
+            }
+
+            75% {
+
+                transform:
+                    translateX(5px);
+
+            }
+
+        }
+
+
+        .answer:disabled {
+            cursor: default;
         }
 
 
@@ -655,28 +1124,28 @@
 
         #message {
 
-            min-height: 30px;
+            min-height:
+                30px;
 
-            margin-top: 20px;
+            margin-top:
+                19px;
 
-            font-size: 1rem;
+            font-size:
+                0.98rem;
 
-            line-height: 1.5;
+            line-height:
+                1.45;
 
         }
 
 
         .correct {
-
-            color: var(--color-success);
-
+            color: var(--success);
         }
 
 
         .wrong {
-
-            color: var(--color-error);
-
+            color: var(--error);
         }
 
 
@@ -686,86 +1155,182 @@
 
         .success-icon {
 
-            margin-bottom: 10px;
+            margin-bottom:
+                13px;
 
-            font-size: 4rem;
+            font-size:
+                3.3rem;
 
-            line-height: 1;
+            line-height:
+                1;
+
+        }
+
+
+        .success-lead {
+
+            color:
+                var(--olive);
+
+            font-size:
+                1.1rem;
 
         }
 
 
         /* =========================================================
-           GESCHENK / REVEAL
+           GESCHENK-SEITE
         ========================================================= */
 
         .gift-intro {
 
-            max-width: 500px;
+            max-width:
+                510px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
         }
 
 
         .reveal-area {
 
-            margin: 30px 0 10px;
+            position:
+                relative;
 
-            padding: 25px 15px;
+            margin:
+                29px 0
+                18px;
 
-            border-radius: 25px;
+            padding:
+                28px 20px;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid
+                rgba(197, 170, 122, 0.25);
+
+            border-radius:
+                20px;
 
             background:
+
                 linear-gradient(
                     135deg,
-                    rgba(240, 231, 223, 0.55),
-                    rgba(232, 238, 228, 0.55)
+                    rgba(244, 237, 229, 0.55),
+                    rgba(234, 240, 229, 0.65)
                 );
+
+        }
+
+
+        .reveal-area::before {
+
+            content:
+                "✦";
+
+            position:
+                absolute;
+
+            top:
+                12px;
+
+            left:
+                18px;
+
+            color:
+                rgba(197, 170, 122, 0.45);
+
+            font-size:
+                1rem;
+
+        }
+
+
+        .reveal-area::after {
+
+            content:
+                "✦";
+
+            position:
+                absolute;
+
+            right:
+                18px;
+
+            bottom:
+                12px;
+
+            color:
+                rgba(197, 170, 122, 0.45);
+
+            font-size:
+                1rem;
 
         }
 
 
         .reveal-label {
 
-            margin-bottom: 15px;
+            color:
+                var(--rose);
 
-            color: var(--color-secondary);
+            font-size:
+                0.73rem;
 
-            font-size: 0.85rem;
+            font-weight:
+                600;
 
-            letter-spacing: 2px;
+            letter-spacing:
+                2.6px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
         }
 
 
+        /* =========================================================
+           350-EURO-REVEAL
+        ========================================================= */
+
         .reward {
 
-            margin: 20px 0;
+            margin:
+                18px 0
+                15px;
 
-            color: #8b6f65;
+            color:
+                #8b6f65;
 
-            font-size: clamp(
-                3.5rem,
-                15vw,
-                6rem
-            );
+            font-size:
+                clamp(
+                    4rem,
+                    16vw,
+                    6.3rem
+                );
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            line-height: 1;
+            line-height:
+                1;
 
-            text-shadow:
-                0 3px 0
-                rgba(139, 111, 101, 0.08);
+            letter-spacing:
+                -2px;
 
-            opacity: 0;
+            opacity:
+                0;
 
             transform:
-                scale(0.5)
-                translateY(20px);
+                translateY(22px)
+                scale(0.62);
+
+            text-shadow:
+                0 4px 0
+                rgba(139, 111, 101, 0.065);
 
         }
 
@@ -773,8 +1338,14 @@
         .reward.revealed {
 
             animation:
-                rewardReveal 0.9s
-                cubic-bezier(0.22, 1, 0.36, 1)
+                rewardReveal
+                0.95s
+                cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                )
                 forwards;
 
         }
@@ -784,69 +1355,106 @@
 
             0% {
 
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
-                    scale(0.5)
-                    translateY(20px);
+                    translateY(22px)
+                    scale(0.62);
 
             }
 
-            55% {
+            58% {
 
-                opacity: 1;
+                opacity:
+                    1;
 
                 transform:
-                    scale(1.12)
-                    translateY(-4px);
+                    translateY(-4px)
+                    scale(1.09);
 
             }
 
             100% {
 
-                opacity: 1;
+                opacity:
+                    1;
 
                 transform:
-                    scale(1)
-                    translateY(0);
+                    translateY(0)
+                    scale(1);
 
             }
+
+        }
+
+
+        .reward-subtitle {
+
+            margin:
+                4px 0 0;
+
+            color:
+                var(--olive);
+
+            font-size:
+                0.98rem;
+
+            opacity:
+                0;
+
+            transform:
+                translateY(8px);
+
+            transition:
+                opacity
+                0.6s ease,
+
+                transform
+                0.6s ease;
+
+        }
+
+
+        .reward-subtitle.visible {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
 
         }
 
 
         .reward-message {
 
-            opacity: 0;
+            margin-top:
+                19px;
 
-            transform: translateY(10px);
+            opacity:
+                0;
+
+            transform:
+                translateY(10px);
 
             transition:
-                opacity 0.6s ease,
-                transform 0.6s ease;
+                opacity
+                0.7s ease,
+
+                transform
+                0.7s ease;
 
         }
 
 
         .reward-message.visible {
 
-            opacity: 1;
+            opacity:
+                1;
 
-            transform: translateY(0);
-
-        }
-
-
-        .reveal-button {
-
-            margin-top: 10px;
-
-        }
-
-
-        .reveal-button.hidden {
-
-            display: none;
+            transform:
+                translateY(0);
 
         }
 
@@ -857,10 +1465,12 @@
 
         .heart {
 
-            display: inline-block;
+            display:
+                inline-block;
 
             animation:
-                heartbeat 1.5s
+                heartbeat
+                1.6s
                 ease-in-out
                 infinite;
 
@@ -872,13 +1482,15 @@
             0%,
             100% {
 
-                transform: scale(1);
+                transform:
+                    scale(1);
 
             }
 
             50% {
 
-                transform: scale(1.15);
+                transform:
+                    scale(1.12);
 
             }
 
@@ -891,20 +1503,24 @@
 
         .confetti {
 
-            position: fixed;
+            position:
+                fixed;
 
-            top: -40px;
+            top:
+                -40px;
 
-            z-index: 100;
+            z-index:
+                100;
 
-            pointer-events: none;
+            pointer-events:
+                none;
 
-            font-size: 20px;
-
-            line-height: 1;
+            line-height:
+                1;
 
             animation:
-                confettiFall 4s
+                confettiFall
+                4.3s
                 linear
                 forwards;
 
@@ -913,7 +1529,10 @@
 
         @keyframes confettiFall {
 
-            0% {
+            from {
+
+                opacity:
+                    1;
 
                 transform:
                     translate3d(
@@ -923,11 +1542,12 @@
                     )
                     rotate(0deg);
 
-                opacity: 1;
-
             }
 
-            100% {
+            to {
+
+                opacity:
+                    0;
 
                 transform:
                     translate3d(
@@ -936,8 +1556,6 @@
                         0
                     )
                     rotate(720deg);
-
-                opacity: 0;
 
             }
 
@@ -956,8 +1574,6 @@
             *::before,
             *::after {
 
-                scroll-behavior: auto !important;
-
                 animation-duration:
                     0.01ms !important;
 
@@ -966,6 +1582,9 @@
 
                 transition-duration:
                     0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
 
             }
 
@@ -976,11 +1595,14 @@
            MOBILE
         ========================================================= */
 
-        @media (max-width: 600px) {
+        @media (
+            max-width: 600px
+        ) {
 
             body {
 
-                padding: 8px;
+                padding:
+                    8px;
 
             }
 
@@ -988,178 +1610,236 @@
             .card {
 
                 padding:
-                    28px 18px;
+                    28px 18px
+                    24px;
 
-                border-radius: 24px;
+                border-radius:
+                    22px;
 
             }
 
 
             .card::before {
 
-                inset: 7px;
+                inset:
+                    7px;
 
-                border-radius: 20px;
+                border-radius:
+                    16px;
 
             }
 
 
-            .party-decoration {
+            .string-lights {
 
-                gap: 6px;
+                gap:
+                    9px;
 
-                margin-bottom: 10px;
+                margin-bottom:
+                    18px;
 
-                font-size: 1.35rem;
+            }
 
-                letter-spacing: 1px;
+
+            .string-lights::before,
+            .string-lights::after {
+
+                width:
+                    35px;
 
             }
 
 
             .small-title {
 
-                font-size: 0.65rem;
+                font-size:
+                    0.62rem;
 
-                letter-spacing: 2px;
+                letter-spacing:
+                    2px;
 
             }
 
 
             h1 {
 
-                margin-bottom: 5px;
-
-                font-size: 2.2rem;
+                font-size:
+                    2.2rem;
 
             }
 
 
             h2 {
 
-                margin-bottom: 20px;
+                margin-bottom:
+                    20px;
 
-                font-size: 1.1rem;
+                font-size:
+                    1.08rem;
 
             }
 
 
             h3 {
 
-                margin-bottom: 20px;
+                margin-bottom:
+                    20px;
 
-                font-size: 1.25rem;
+                font-size:
+                    1.22rem;
 
             }
 
 
             p {
 
-                margin: 10px 0;
+                margin:
+                    10px 0;
 
-                font-size: 0.95rem;
+                font-size:
+                    0.94rem;
 
-                line-height: 1.55;
+                line-height:
+                    1.55;
 
             }
 
 
             .divider {
 
-                margin: 18px 0;
+                margin:
+                    19px 0;
 
             }
 
 
             .button {
 
-                width: 100%;
+                width:
+                    100%;
 
-                margin-top: 18px;
+                min-height:
+                    49px;
+
+                margin-top:
+                    18px;
 
                 padding:
-                    13px 20px;
+                    13px 18px;
 
-                font-size: 1rem;
+            }
+
+
+            .progress {
+
+                margin:
+                    20px 0
+                    23px;
 
             }
 
 
             .answer {
 
-                padding:
-                    14px 16px;
-
-                font-size: 0.95rem;
-
-            }
-
-
-            .answers {
-
-                gap: 9px;
-
-            }
-
-
-            .reveal-area {
-
-                margin: 20px 0 5px;
+                gap:
+                    11px;
 
                 padding:
-                    20px 10px;
+                    12px 13px;
+
+                border-radius:
+                    13px;
+
+                font-size:
+                    0.92rem;
 
             }
 
 
-            .reward {
+            .answer-letter {
 
-                margin: 15px 0;
+                width:
+                    30px;
 
-                font-size: 4rem;
+                height:
+                    30px;
+
+                font-size:
+                    0.73rem;
+
+            }
+
+
+            .start-footer {
+
+                margin-top:
+                    27px;
+
+                padding-top:
+                    18px;
+
+            }
+
+
+            .wedding-line {
+
+                font-size:
+                    0.61rem;
+
+                letter-spacing:
+                    1.6px;
+
+            }
+
+
+            .location-line {
+
+                font-size:
+                    0.58rem;
+
+                letter-spacing:
+                    1.7px;
 
             }
 
 
             #reward h1 {
 
-                margin-bottom: 8px;
-
-                font-size: 1.9rem;
-
-            }
-
-
-            #reward .success-icon {
-
-                margin-bottom: 4px;
-
-                font-size: 2.8rem;
+                font-size:
+                    1.95rem;
 
             }
 
 
-            #reward .party-decoration {
+            .reveal-area {
 
-                margin-bottom: 4px;
+                margin:
+                    20px 0 13px;
 
-            }
-
-
-            #reward .divider {
-
-                margin: 12px 0;
+                padding:
+                    21px 13px;
 
             }
 
 
-            #reward p {
+            .reward {
 
-                margin: 8px 0;
+                margin:
+                    14px 0;
 
-                font-size: 0.9rem;
+                font-size:
+                    4rem;
 
-                line-height: 1.45;
+            }
+
+
+            .party-decoration {
+
+                margin-bottom:
+                    10px;
+
+                font-size:
+                    1.15rem;
 
             }
 
@@ -1186,25 +1866,44 @@
             aria-labelledby="start-title"
         >
 
+
+            <!-- Lichterkette -->
+
+            <div
+                class="string-lights"
+                aria-hidden="true"
+            >
+
+                <span class="light"></span>
+                <span class="light"></span>
+                <span class="light"></span>
+                <span class="light"></span>
+                <span class="light"></span>
+
+            </div>
+
+
             <div
                 class="party-decoration"
                 aria-hidden="true"
             >
+
                 🥂
-                <span class="sparkle">✨</span>
+                <span class="sparkle">✦</span>
                 💍
-                <span class="sparkle">✨</span>
-                🎉
+                <span class="sparkle">✦</span>
+                🥂
+
             </div>
 
 
             <div class="small-title">
-                Ein kleines Abenteuer für
+                Ein kleines Hochzeitsabenteuer für
             </div>
 
 
             <h1 id="start-title">
-                Janike und Mirco
+                Janike &amp; Mirco
             </h1>
 
 
@@ -1219,14 +1918,20 @@
 
 
             <p>
-                heute wird gefeiert, gelacht,
-                getanzt und natürlich geheiratet.
-                <span
-                    class="heart"
-                    aria-hidden="true"
-                >
-                    ❤️
-                </span>
+                heute wird Ja gesagt,
+                angestoßen, gelacht, gegessen
+                und hoffentlich noch ziemlich
+                lange gefeiert.
+                🥂
+            </p>
+
+
+            <p>
+                Und weil ein Umschlag mit einem
+                Geschenk zwar schön, aber auch
+                ein bisschen langweilig wäre,
+                müsst Ihr Euch Eures heute erst
+                noch verdienen. 😉
             </p>
 
 
@@ -1234,32 +1939,46 @@
                 class="divider"
                 aria-hidden="true"
             >
-                ✨
+                ✦
+            </div>
+
+
+            <div class="quiz-promise">
+
+                <strong>
+                    Acht Fragen.
+                </strong>
+
+                <strong>
+                    Zwei Kandidaten.
+                </strong>
+
+                <strong>
+                    Ein Geschenk.
+                </strong>
+
             </div>
 
 
             <p>
-                Doch bevor Ihr Euer Hochzeitsgeschenk
-                in Empfang nehmen könnt, wartet noch
-                eine kleine Herausforderung auf Euch …
+                Wie gut kennt Ihr Euch,
+                Eure Geschichte – und vielleicht
+                auch uns?
             </p>
 
 
             <p>
-                <strong>Acht Fragen.</strong><br>
-                <strong>Acht Antworten.</strong><br>
-                <strong>Die Überraschung.</strong> 🎁
+                Beantwortet alle acht Fragen
+                richtig und am Ende wartet
+                eine kleine Überraschung
+                auf Euch.
             </p>
 
 
             <p>
-                Nur wenn Ihr alle acht Fragen richtig
-                beantwortet, lüftet sich das Geheimnis.
-            </p>
-
-
-            <p>
-                <strong>Are you ready for it?</strong> 🥂
+                <strong>
+                    Bereit? Dann los! 🥂
+                </strong>
             </p>
 
 
@@ -1268,8 +1987,22 @@
                 class="button"
                 type="button"
             >
-                Das Rätsel beginnt 🎉
+                Rätsel starten ✨
             </button>
+
+
+            <footer class="start-footer">
+
+                <div class="wedding-line">
+                    Standesamt · Garten · ganz viel Liebe
+                </div>
+
+                <div class="location-line">
+                    Wolfenbüttel · 2026
+                </div>
+
+            </footer>
+
 
         </section>
 
@@ -1285,15 +2018,9 @@
             aria-labelledby="question"
         >
 
-            <div
-                class="party-decoration"
-                aria-hidden="true"
-            >
-                🥂
-                <span class="sparkle">✨</span>
-                💕
-                <span class="sparkle">✨</span>
-                🎊
+
+            <div class="quiz-names">
+                ✦ Janike &amp; Mirco ✦
             </div>
 
 
@@ -1322,7 +2049,10 @@
             </div>
 
 
-            <h3 id="question"></h3>
+            <h3
+                id="question"
+                tabindex="-1"
+            ></h3>
 
 
             <div
@@ -1336,6 +2066,7 @@
                 aria-live="polite"
                 aria-atomic="true"
             ></div>
+
 
         </section>
 
@@ -1351,11 +2082,12 @@
             aria-labelledby="success-title"
         >
 
+
             <div
                 class="success-icon"
                 aria-hidden="true"
             >
-                🎉
+                🥂
             </div>
 
 
@@ -1363,9 +2095,7 @@
                 class="party-decoration"
                 aria-hidden="true"
             >
-                🥂
-                <span class="sparkle">✨</span>
-                🎊
+                ✦ ✨ ✦
             </div>
 
 
@@ -1375,19 +2105,26 @@
 
 
             <p>
-                Janike und Mirco,
+                Janike &amp; Mirco,
+            </p>
+
+
+            <p class="success-lead">
+
+                <strong>
+                    Acht Fragen,
+                    acht richtige Antworten –
+                    souverän gemeistert.
+                </strong>
+
+                🥂
+
             </p>
 
 
             <p>
-                Ihr habt tatsächlich alle acht Fragen
-                richtig beantwortet!
-                <span
-                    class="heart"
-                    aria-hidden="true"
-                >
-                    ❤️
-                </span>
+                Wir hätten natürlich
+                nichts anderes erwartet. 😉
             </p>
 
 
@@ -1395,14 +2132,15 @@
                 class="divider"
                 aria-hidden="true"
             >
-                ✨
+                ✦
             </div>
 
 
             <p>
-                Damit habt Ihr Euch verdient,
-                das Geheimnis Eures Geschenks
-                zu lüften.
+                Damit habt Ihr Euch jetzt
+                auch offiziell verdient,
+                herauszufinden, was wir
+                für Euch vorbereitet haben.
             </p>
 
 
@@ -1414,12 +2152,13 @@
                 Geschenk öffnen 🎁
             </button>
 
+
         </section>
 
 
 
         <!-- =====================================================
-             BELOHNUNG
+             GESCHENK
         ====================================================== -->
 
         <section
@@ -1428,21 +2167,14 @@
             aria-labelledby="reward-title"
         >
 
-            <div
-                class="success-icon"
-                aria-hidden="true"
-            >
-                🥂
-            </div>
-
 
             <div class="small-title">
-                Für Eure gemeinsame Zukunft
+                Für alles, was noch vor Euch liegt
             </div>
 
 
             <h1 id="reward-title">
-                Euer Hochzeitsgeschenk
+                Für Euch zwei
             </h1>
 
 
@@ -1450,39 +2182,60 @@
                 class="divider"
                 aria-hidden="true"
             >
-                ✨
+                ✦
             </div>
 
 
             <div class="gift-intro">
 
+
                 <p>
-                    Wir wünschen Euch von Herzen
-                    ganz viel Liebe, Glück, Abenteuer
-                    und unzählige wunderschöne
-                    gemeinsame Momente.
+                    Wir wünschen Euch für Eure
+                    gemeinsame Zukunft ganz viel
+                    Liebe, Glück und Leichtigkeit –
+                    und vor allem jede Menge Momente,
+                    an die Ihr Euch später gerne
+                    zurückerinnert.
                 </p>
 
 
                 <p>
-                    Und für den einen oder anderen
-                    davon gibt es von uns …
+                    Ob für einen schönen Abend,
+                    einen kleinen Ausflug,
+                    etwas für Euer Zuhause
+                    oder einfach etwas,
+                    worauf Ihr beide Lust habt:
                 </p>
+
+
+                <p>
+                    <strong>
+                        Das hier ist für Euch.
+                        <span
+                            class="heart"
+                            aria-hidden="true"
+                        >
+                            ❤️
+                        </span>
+                    </strong>
+                </p>
+
 
             </div>
 
 
-            <!-- =================================================
+            <!-- =============================================
                  GESCHENK-REVEAL
-            ================================================== -->
+            ============================================== -->
 
             <div
-                class="reveal-area"
                 id="revealArea"
+                class="reveal-area"
             >
 
+
                 <div class="reveal-label">
-                    Euer Geschenk
+                    Eine Kleinigkeit von uns
                 </div>
 
 
@@ -1496,28 +2249,48 @@
                 </div>
 
 
+                <p
+                    id="rewardSubtitle"
+                    class="reward-subtitle"
+                >
+                    Für viele schöne
+                    gemeinsame Momente.
+                </p>
+
+
                 <button
                     id="revealButton"
-                    class="button reveal-button"
+                    class="button"
                     type="button"
                 >
-                    Geschenk enthüllen ✨
+                    Überraschung enthüllen ✨
                 </button>
 
 
                 <div
                     id="rewardMessage"
                     class="reward-message"
-                    aria-live="polite"
                 >
+
+                    <div
+                        class="divider"
+                        aria-hidden="true"
+                    >
+                        ✦
+                    </div>
+
 
                     <p>
                         <strong>
-                            Auf Euch! ❤️
+                            Auf Euch, auf heute
+                            und auf alles,
+                            was noch kommt.
+                            🥂❤️
                         </strong>
                     </p>
 
                 </div>
+
 
             </div>
 
@@ -1527,13 +2300,15 @@
                 aria-hidden="true"
             >
                 🥂
-                <span class="sparkle">✨</span>
+                <span class="sparkle">✦</span>
                 ❤️
-                <span class="sparkle">✨</span>
-                🎉
+                <span class="sparkle">✦</span>
+                🥂
             </div>
 
+
         </section>
+
 
     </main>
 
@@ -1551,6 +2326,7 @@
         const questions = [
 
             {
+
                 question:
                     "Wie hieß Mircos erstes Haustier?",
 
@@ -1566,6 +2342,7 @@
 
 
             {
+
                 question:
                     "In welchem Song träumt Taylor Swift davon, mit jemandem eine Familie zu gründen?",
 
@@ -1581,8 +2358,9 @@
 
 
             {
+
                 question:
-                    "Wo habt ihr uns von dem Heiratsantrag erzählt?",
+                    "Wo habt Ihr uns von dem Heiratsantrag erzählt?",
 
                 answers: [
                     "Auf der Terrasse im Garten",
@@ -1596,6 +2374,7 @@
 
 
             {
+
                 question:
                     "Auf welchem Konzert waren wir alle zusammen im Mai 2019?",
 
@@ -1611,6 +2390,7 @@
 
 
             {
+
                 question:
                     "Was ist das Wichtigste für eine glückliche Ehe?",
 
@@ -1626,6 +2406,7 @@
 
 
             {
+
                 question:
                     "Wie heißt der Liebestrank aus Harry Potter?",
 
@@ -1641,6 +2422,7 @@
 
 
             {
+
                 question:
                     "Was war Mircos erster Eindruck von Janike?",
 
@@ -1656,6 +2438,7 @@
 
 
             {
+
                 question:
                     "Was würde Janike wahrscheinlich am glücklichsten machen?",
 
@@ -1682,89 +2465,153 @@
 
 
         /* =========================================================
-           DOM-ELEMENTE
+           DOM
         ========================================================= */
 
         const startPage =
-            document.getElementById("start");
+            document.getElementById(
+                "start"
+            );
+
 
         const quizPage =
-            document.getElementById("quiz");
+            document.getElementById(
+                "quiz"
+            );
+
 
         const successPage =
-            document.getElementById("success");
+            document.getElementById(
+                "success"
+            );
+
 
         const rewardPage =
-            document.getElementById("reward");
+            document.getElementById(
+                "reward"
+            );
 
 
         const startButton =
-            document.getElementById("startButton");
+            document.getElementById(
+                "startButton"
+            );
+
 
         const rewardButton =
-            document.getElementById("rewardButton");
+            document.getElementById(
+                "rewardButton"
+            );
+
 
         const revealButton =
-            document.getElementById("revealButton");
+            document.getElementById(
+                "revealButton"
+            );
 
 
         const questionNumber =
-            document.getElementById("questionNumber");
+            document.getElementById(
+                "questionNumber"
+            );
+
 
         const questionElement =
-            document.getElementById("question");
+            document.getElementById(
+                "question"
+            );
+
 
         const answersContainer =
-            document.getElementById("answers");
+            document.getElementById(
+                "answers"
+            );
+
 
         const messageElement =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
+
 
         const progressBar =
-            document.getElementById("progressBar");
+            document.getElementById(
+                "progressBar"
+            );
+
 
         const progressContainer =
-            document.querySelector(".progress");
+            document.querySelector(
+                ".progress"
+            );
 
 
         const rewardAmount =
-            document.getElementById("rewardAmount");
+            document.getElementById(
+                "rewardAmount"
+            );
+
+
+        const rewardSubtitle =
+            document.getElementById(
+                "rewardSubtitle"
+            );
+
 
         const rewardMessage =
-            document.getElementById("rewardMessage");
+            document.getElementById(
+                "rewardMessage"
+            );
 
 
         /* =========================================================
-           HILFSFUNKTIONEN
+           SEITENWECHSEL
         ========================================================= */
 
-        function showPage(pageToShow) {
+        function showPage(
+            pageToShow
+        ) {
 
-            [
+            const pages = [
+
                 startPage,
                 quizPage,
                 successPage,
                 rewardPage
-            ].forEach(function (page) {
 
-                page.classList.add("hidden");
-
-            });
+            ];
 
 
-            pageToShow.classList.remove("hidden");
+            pages.forEach(
+                function (page) {
+
+                    page.classList.add(
+                        "hidden"
+                    );
+
+                }
+            );
+
+
+            pageToShow.classList.remove(
+                "hidden"
+            );
 
         }
 
 
+        /* =========================================================
+           FORTSCHRITT
+        ========================================================= */
+
         function updateProgress() {
 
-            const total =
-                questions.length;
-
-
             const progress =
-                ((currentQuestion + 1) / total)
+                (
+                    (currentQuestion + 1)
+                    /
+                    questions.length
+                )
                 * 100;
 
 
@@ -1775,7 +2622,9 @@
             progressContainer.setAttribute(
                 "aria-valuenow",
                 String(
-                    Math.round(progress)
+                    Math.round(
+                        progress
+                    )
                 )
             );
 
@@ -1792,7 +2641,11 @@
 
             isAnswerLocked = false;
 
-            showPage(quizPage);
+
+            showPage(
+                quizPage
+            );
+
 
             showQuestion();
 
@@ -1806,7 +2659,9 @@
         function showQuestion() {
 
             const current =
-                questions[currentQuestion];
+                questions[
+                    currentQuestion
+                ];
 
 
             if (!current) {
@@ -1818,7 +2673,8 @@
             }
 
 
-            isAnswerLocked = false;
+            isAnswerLocked =
+                false;
 
 
             questionNumber.textContent =
@@ -1829,63 +2685,155 @@
                 current.question;
 
 
+            messageElement.textContent =
+                "";
+
+
+            messageElement.className =
+                "";
+
+
+            answersContainer.innerHTML =
+                "";
+
+
             updateProgress();
 
 
-            messageElement.textContent = "";
-
-            messageElement.className = "";
-
-
-            answersContainer.innerHTML = "";
+            const letters = [
+                "A",
+                "B",
+                "C"
+            ];
 
 
             current.answers.forEach(
-                function (answer, index) {
+                function (
+                    answer,
+                    index
+                ) {
 
                     const button =
-                        document.createElement("button");
+                        document.createElement(
+                            "button"
+                        );
 
 
-                    button.type = "button";
+                    button.type =
+                        "button";
 
-                    button.className = "answer";
 
-                    button.textContent = answer;
+                    button.className =
+                        "answer";
 
-                    button.dataset.answerIndex =
-                        String(index);
+
+                    /*
+                     * Buchstabe A / B / C
+                     */
+
+                    const letter =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    letter.className =
+                        "answer-letter";
+
+
+                    letter.textContent =
+                        letters[index]
+                        ??
+                        String(
+                            index + 1
+                        );
+
+
+                    /*
+                     * Antworttext
+                     */
+
+                    const text =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    text.className =
+                        "answer-text";
+
+
+                    text.textContent =
+                        answer;
+
+
+                    /*
+                     * Status-Haken
+                     */
+
+                    const status =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    status.className =
+                        "answer-status";
+
+
+                    status.textContent =
+                        "✓";
+
+
+                    status.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+
+                    button.append(
+                        letter,
+                        text,
+                        status
+                    );
 
 
                     button.addEventListener(
                         "click",
                         function () {
 
-                            checkAnswer(index);
+                            checkAnswer(
+                                index
+                            );
 
                         }
                     );
 
 
-                    answersContainer.appendChild(
-                        button
-                    );
+                    answersContainer
+                        .appendChild(
+                            button
+                        );
 
                 }
             );
 
 
-            const firstAnswer =
-                answersContainer.querySelector(
-                    ".answer"
-                );
+            /*
+             * Fokus auf Überschrift,
+             * damit Screenreader die neue
+             * Frage sinnvoll ankündigen.
+             */
 
+            window.requestAnimationFrame(
+                function () {
 
-            if (firstAnswer) {
+                    questionElement.focus({
+                        preventScroll: true
+                    });
 
-                firstAnswer.focus();
-
-            }
+                }
+            );
 
         }
 
@@ -1898,7 +2846,9 @@
             selectedAnswer
         ) {
 
-            if (isAnswerLocked) {
+            if (
+                isAnswerLocked
+            ) {
 
                 return;
 
@@ -1906,7 +2856,9 @@
 
 
             const current =
-                questions[currentQuestion];
+                questions[
+                    currentQuestion
+                ];
 
 
             if (!current) {
@@ -1917,13 +2869,16 @@
 
 
             const answerButtons =
-                answersContainer.querySelectorAll(
-                    ".answer"
-                );
+                answersContainer
+                    .querySelectorAll(
+                        ".answer"
+                    );
 
 
             const selectedButton =
-                answerButtons[selectedAnswer];
+                answerButtons[
+                    selectedAnswer
+                ];
 
 
             if (!selectedButton) {
@@ -1933,30 +2888,39 @@
             }
 
 
+            /* =====================================================
+               RICHTIGE ANTWORT
+            ====================================================== */
+
             if (
-                selectedAnswer ===
+                selectedAnswer
+                ===
                 current.correct
             ) {
 
-                isAnswerLocked = true;
+                isAnswerLocked =
+                    true;
 
 
                 answerButtons.forEach(
                     function (button) {
 
-                        button.disabled = true;
+                        button.disabled =
+                            true;
 
                     }
                 );
 
 
-                selectedButton.classList.add(
-                    "correct-answer"
-                );
+                selectedButton
+                    .classList
+                    .add(
+                        "correct-answer"
+                    );
 
 
                 messageElement.textContent =
-                    "✨ Richtig! Sehr gut! 🥂";
+                    "✓ Treffer! Nächste Runde. 🥂";
 
 
                 messageElement.className =
@@ -1970,7 +2934,8 @@
                     function () {
 
                         if (
-                            currentQuestion <
+                            currentQuestion
+                            <
                             questions.length
                         ) {
 
@@ -1985,7 +2950,8 @@
                         }
 
                     },
-                    800
+
+                    850
                 );
 
 
@@ -1994,13 +2960,35 @@
             }
 
 
-            selectedButton.classList.add(
-                "wrong-answer"
-            );
+            /* =====================================================
+               FALSCHE ANTWORT
+            ====================================================== */
+
+            selectedButton
+                .classList
+                .remove(
+                    "wrong-answer"
+                );
+
+
+            /*
+             * Animation kann dadurch
+             * auch bei erneutem Klick
+             * erneut gestartet werden.
+             */
+
+            void selectedButton.offsetWidth;
+
+
+            selectedButton
+                .classList
+                .add(
+                    "wrong-answer"
+                );
 
 
             messageElement.textContent =
-                "✨ Das war leider nicht richtig. Versuch es noch einmal! 😉";
+                "Fast! 😉 Versucht es noch einmal.";
 
 
             messageElement.className =
@@ -2010,12 +2998,15 @@
             window.setTimeout(
                 function () {
 
-                    selectedButton.classList.remove(
-                        "wrong-answer"
-                    );
+                    selectedButton
+                        .classList
+                        .remove(
+                            "wrong-answer"
+                        );
 
                 },
-                700
+
+                650
             );
 
         }
@@ -2027,31 +3018,60 @@
 
         function showSuccess() {
 
-            showPage(successPage);
+            showPage(
+                successPage
+            );
 
-            createConfetti();
+
+            /*
+             * Hier bewusst nur ein kleiner
+             * Vorgeschmack – das große
+             * Konfetti kommt erst beim
+             * Geschenk-Reveal.
+             */
+
+            createConfetti(
+                16,
+                false
+            );
 
         }
 
 
         /* =========================================================
-           BELOHNUNG ANZEIGEN
+           GESCHENKSEITE
         ========================================================= */
 
         function showReward() {
 
-            showPage(rewardPage);
+            showPage(
+                rewardPage
+            );
 
 
             /*
-             * Wichtig:
-             * Der Geldbetrag wird bewusst NICHT direkt angezeigt.
-             * Die Enthüllung erfolgt erst nach Klick.
+             * Reveal komplett zurücksetzen.
              */
 
-            rewardAmount.classList.remove(
-                "revealed"
-            );
+            rewardAmount
+                .classList
+                .remove(
+                    "revealed"
+                );
+
+
+            rewardSubtitle
+                .classList
+                .remove(
+                    "visible"
+                );
+
+
+            rewardMessage
+                .classList
+                .remove(
+                    "visible"
+                );
 
 
             rewardAmount.setAttribute(
@@ -2060,27 +3080,26 @@
             );
 
 
-            rewardMessage.classList.remove(
-                "visible"
-            );
-
-
-            revealButton.classList.remove(
-                "hidden"
-            );
+            revealButton
+                .classList
+                .remove(
+                    "hidden"
+                );
 
         }
 
 
         /* =========================================================
-           GESCHENK ENTHÜLLEN
+           350 € ENTHÜLLEN
         ========================================================= */
 
         function revealGift() {
 
-            revealButton.classList.add(
-                "hidden"
-            );
+            revealButton
+                .classList
+                .add(
+                    "hidden"
+                );
 
 
             rewardAmount.setAttribute(
@@ -2089,29 +3108,59 @@
             );
 
 
-            rewardAmount.classList.add(
-                "revealed"
-            );
+            rewardAmount
+                .classList
+                .add(
+                    "revealed"
+                );
 
+
+            /*
+             * Unterzeile folgt etwas später.
+             */
 
             window.setTimeout(
                 function () {
 
-                    rewardMessage.classList.add(
-                        "visible"
-                    );
+                    rewardSubtitle
+                        .classList
+                        .add(
+                            "visible"
+                        );
 
                 },
-                650
+
+                550
             );
 
 
             /*
-             * Kleine Party-Explosion passend
-             * zur Geschenkenthüllung.
+             * Abschlussbotschaft folgt danach.
              */
 
-            createRevealConfetti();
+            window.setTimeout(
+                function () {
+
+                    rewardMessage
+                        .classList
+                        .add(
+                            "visible"
+                        );
+
+                },
+
+                950
+            );
+
+
+            /*
+             * Jetzt erst die große Party.
+             */
+
+            createConfetti(
+                48,
+                true
+            );
 
         }
 
@@ -2120,22 +3169,38 @@
            KONFETTI
         ========================================================= */
 
-        function createConfetti() {
+        function createConfetti(
+            amount = 30,
+            isFinale = false
+        ) {
 
-            const symbols = [
+            const subtleSymbols = [
 
-                "🥂",
                 "✨",
-                "🎉",
-                "💕",
-                "🎊",
-                "💍",
-                "🎈"
+                "✦",
+                "🥂"
 
             ];
 
 
-            const amount = 40;
+            const finaleSymbols = [
+
+                "✨",
+                "🥂",
+                "🎉",
+                "🎊",
+                "❤️",
+                "💕",
+                "💶",
+                "✦"
+
+            ];
+
+
+            const symbols =
+                isFinale
+                    ? finaleSymbols
+                    : subtleSymbols;
 
 
             for (
@@ -2145,7 +3210,9 @@
             ) {
 
                 const confetti =
-                    document.createElement("span");
+                    document.createElement(
+                        "span"
+                    );
 
 
                 confetti.className =
@@ -2162,26 +3229,49 @@
                     symbols[
                         Math.floor(
                             Math.random()
-                            * symbols.length
+                            *
+                            symbols.length
                         )
                     ];
 
 
                 confetti.style.left =
-                    `${Math.random() * 100}vw`;
-
-
-                confetti.style.animationDelay =
-                    `${Math.random() * 1.5}s`;
+                    `${
+                        Math.random()
+                        * 100
+                    }vw`;
 
 
                 confetti.style.fontSize =
-                    `${14 + Math.random() * 18}px`;
+                    `${
+                        13
+                        +
+                        Math.random()
+                        * 17
+                    }px`;
+
+
+                confetti.style.animationDelay =
+                    `${
+                        Math.random()
+                        *
+                        (
+                            isFinale
+                                ? 0.8
+                                : 0.4
+                        )
+                    }s`;
 
 
                 confetti.style.setProperty(
                     "--drift",
-                    `${-100 + Math.random() * 200}px`
+
+                    `${
+                        -130
+                        +
+                        Math.random()
+                        * 260
+                    }px`
                 );
 
 
@@ -2196,6 +3286,7 @@
                         confetti.remove();
 
                     },
+
                     6000
                 );
 
@@ -2205,95 +3296,7 @@
 
 
         /* =========================================================
-           KONFETTI FÜR GESCHENK-REVEAL
-        ========================================================= */
-
-        function createRevealConfetti() {
-
-            const symbols = [
-
-                "💶",
-                "✨",
-                "🥂",
-                "🎉",
-                "🎊",
-                "💕",
-                "🎈"
-
-            ];
-
-
-            const amount = 25;
-
-
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
-
-                const confetti =
-                    document.createElement("span");
-
-
-                confetti.className =
-                    "confetti";
-
-
-                confetti.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-
-                confetti.textContent =
-                    symbols[
-                        Math.floor(
-                            Math.random()
-                            * symbols.length
-                        )
-                    ];
-
-
-                confetti.style.left =
-                    `${20 + Math.random() * 60}vw`;
-
-
-                confetti.style.animationDelay =
-                    `${Math.random() * 0.5}s`;
-
-
-                confetti.style.fontSize =
-                    `${14 + Math.random() * 16}px`;
-
-
-                confetti.style.setProperty(
-                    "--drift",
-                    `${-150 + Math.random() * 300}px`
-                );
-
-
-                document.body.appendChild(
-                    confetti
-                );
-
-
-                window.setTimeout(
-                    function () {
-
-                        confetti.remove();
-
-                    },
-                    5000
-                );
-
-            }
-
-        }
-
-
-        /* =========================================================
-           EVENT LISTENER
+           EVENTS
         ========================================================= */
 
         startButton.addEventListener(
