@@ -105,7 +105,9 @@
         @keyframes floatFlower {
 
             0%, 100% {
-                transform: translateY(0) rotate(0deg);
+                transform:
+                    translateY(0)
+                    rotate(0deg);
             }
 
             50% {
@@ -133,14 +135,12 @@
                 rgba(255, 253, 248, 0.94);
 
             border:
-
                 1px solid
                 rgba(139, 154, 122, 0.25);
 
             border-radius: 35px;
 
             box-shadow:
-
                 0 20px 60px
                 rgba(70, 80, 65, 0.15),
 
@@ -154,7 +154,7 @@
         }
 
 
-        /* dezenter Rahmen */
+        /* Dezenter Rahmen */
 
         .card::before {
 
@@ -165,7 +165,6 @@
             inset: 12px;
 
             border:
-
                 1px solid
                 rgba(154, 123, 114, 0.18);
 
@@ -209,7 +208,6 @@
         h1 {
 
             margin:
-
                 0 0 8px 0;
 
             font-size: clamp(
@@ -228,7 +226,6 @@
         h2 {
 
             margin:
-
                 0 0 35px 0;
 
             font-size: 1.35rem;
@@ -264,7 +261,6 @@
             line-height: 1.8;
 
             margin:
-
                 14px 0;
 
         }
@@ -299,7 +295,6 @@
             flex: 1;
 
             background:
-
                 rgba(193,155,145,0.35);
 
         }
@@ -316,11 +311,9 @@
             margin-top: 25px;
 
             padding:
-
                 15px 32px;
 
             background:
-
                 linear-gradient(
                     135deg,
                     #8b9a7a,
@@ -340,12 +333,10 @@
             cursor: pointer;
 
             box-shadow:
-
                 0 8px 18px
                 rgba(113,130,100,0.25);
 
             transition:
-
                 transform 0.2s ease,
                 box-shadow 0.2s ease;
 
@@ -358,7 +349,6 @@
                 translateY(-2px);
 
             box-shadow:
-
                 0 12px 25px
                 rgba(113,130,100,0.3);
 
@@ -382,13 +372,11 @@
             display: inline-block;
 
             padding:
-
                 7px 16px;
 
             border-radius: 20px;
 
             background:
-
                 #f0e7df;
 
             color: #9a7b72;
@@ -411,11 +399,9 @@
             padding: 17px 20px;
 
             background:
-
                 #faf8f2;
 
             border:
-
                 1.5px solid
                 #ddd7ca;
 
@@ -430,7 +416,6 @@
             cursor: pointer;
 
             transition:
-
                 background 0.2s ease,
                 transform 0.2s ease,
                 border-color 0.2s ease;
@@ -494,7 +479,6 @@
             border-radius: 10px;
 
             margin:
-
                 25px 0 30px 0;
 
             overflow: hidden;
@@ -509,7 +493,6 @@
             width: 33%;
 
             background:
-
                 linear-gradient(
                     90deg,
                     #8b9a7a,
@@ -519,7 +502,6 @@
             border-radius: 10px;
 
             transition:
-
                 width 0.5s ease;
 
         }
@@ -556,7 +538,6 @@
         .reward {
 
             margin:
-
                 25px 0;
 
             font-size: clamp(
@@ -570,7 +551,6 @@
             color: #8b6f65;
 
             text-shadow:
-
                 0 3px 0
                 rgba(139,111,101,0.08);
 
@@ -649,703 +629,833 @@
            MOBILE
         ========================= */
 
-          @media (max-width: 600px) {
+        @media (max-width: 600px) {
 
-    body {
-        padding: 8px;
-        min-height: 100dvh;
-    }
+            body {
 
-    .card {
-        padding: 28px 18px;
-        border-radius: 24px;
-    }
+                padding: 8px;
 
-    .card::before {
-        inset: 7px;
-        border-radius: 20px;
-    }
-
-    .flowers {
-        font-size: 1.3rem;
-        letter-spacing: 3px;
-        margin-bottom: 8px;
-    }
-
-    .small-title {
-        font-size: 0.65rem;
-        letter-spacing: 2px;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-        margin-bottom: 5px;
-    }
-
-    h2 {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 0.95rem;
-        line-height: 1.55;
-        margin: 10px 0;
-    }
-
-    .divider {
-        margin: 18px 0;
-    }
-
-    .button {
-        width: 100%;
-        margin-top: 18px;
-        padding: 13px 20px;
-        font-size: 1rem;
-    }
-
-    .answer {
-        padding: 14px 16px;
-        margin: 9px 0;
-        font-size: 0.95rem;
-    }
-
-    /* Geschenkseite speziell für kleine Displays */
-
-    #reward h1 {
-        font-size: 1.9rem;
-        margin-bottom: 8px;
-    }
-
-    #reward .reward {
-        font-size: 4rem;
-        margin: 12px 0;
-    }
-
-    #reward .success-icon {
-        font-size: 2.8rem;
-        margin-bottom: 4px;
-    }
-
-    #reward .flowers {
-        margin-bottom: 4px;
-    }
-
-    #reward .divider {
-        margin: 12px 0;
-    }
-
-    #reward p {
-        font-size: 0.9rem;
-        line-height: 1.45;
-        margin: 8px 0;
-    }
-
-}
-
-<!-- DEKORATIVE BLÜTEN -->
-
-<div class="flower one">🌸</div>
-
-<div class="flower two">🌿</div>
-
-<div class="flower three">🌼</div>
-
-<div class="flower four">🌸</div>
-
-
-<div class="card">
-
-
-    <!-- =====================
-         START
-    ====================== -->
-
-    <div id="start">
-
-        <div class="flowers">
-            🌿 🌸 💍 🌸 🌿
-        </div>
-
-        <div class="small-title">
-            Ein kleines Abenteuer für
-        </div>
-
-        <h1>
-            Janike & Mirco
-        </h1>
-
-        <h2>
-            Das kleine Hochzeitsrätsel
-        </h2>
-
-
-        <p>
-            Liebe Janike, lieber Mirco,
-        </p>
-
-        <p>
-            heute wird gefeiert, gelacht,
-            getanzt und natürlich geheiratet.
-            <span class="heart">❤️</span>
-        </p>
-
-        <div class="divider">
-            ✿
-        </div>
-
-        <p>
-            Doch bevor ihr euer Hochzeitsgeschenk
-            in Empfang nehmen könnt, wartet noch
-            eine kleine Herausforderung auf euch …
-        </p>
-
-        <p>
-            <strong>Drei Fragen.</strong><br>
-            <strong>Drei Antworten.</strong><br>
-            <strong>Eine kleine Überraschung.</strong> 🎁
-        </p>
-
-        <p>
-            Nur wenn ihr alle drei Fragen richtig
-            beantwortet, lüftet sich das Geheimnis.
-        </p>
-
-        <p>
-            <strong>Seid ihr bereit?</strong>
-        </p>
-
-
-        <button
-            class="button"
-            onclick="startQuiz()">
-
-            Das Rätsel beginnt 🌸
-
-        </button>
-
-    </div>
-
-
-
-    <!-- =====================
-         QUIZ
-    ====================== -->
-
-    <div id="quiz" class="hidden">
-
-        <div class="flowers">
-            🌸 🌿 🌸
-        </div>
-
-        <div id="questionNumber">
-            Frage 1 von 3
-        </div>
-
-        <div class="progress">
-
-            <div
-                id="progressBar"
-                class="progress-bar">
-            </div>
-
-        </div>
-
-        <h3 id="question"></h3>
-
-        <div id="answers"></div>
-
-        <div id="message"></div>
-
-    </div>
-
-
-
-    <!-- =====================
-         ERFOLG
-    ====================== -->
-
-    <div id="success" class="hidden">
-
-        <div class="success-icon">
-            🎉
-        </div>
-
-        <div class="flowers">
-            🌸 🌿 🌸
-        </div>
-
-        <h1>
-            Geschafft!
-        </h1>
-
-        <p>
-            Janike & Mirco,
-        </p>
-
-        <p>
-            ihr habt tatsächlich alle drei Fragen
-            richtig beantwortet!
-            <span class="heart">❤️</span>
-        </p>
-
-        <div class="divider">
-            ✿
-        </div>
-
-        <p>
-            Damit habt ihr euch verdient,
-            das Geheimnis eures Geschenks
-            zu lüften.
-        </p>
-
-        <button
-            class="button"
-            onclick="showReward()">
-
-            Geheimnis lüften 🎁
-
-        </button>
-
-    </div>
-
-
-
-    <!-- =====================
-         BELOHNUNG
-    ====================== -->
-
-    <div id="reward" class="hidden">
-
-        <div class="success-icon">
-            🥂
-        </div>
-
-        <div class="small-title">
-            Für eure gemeinsame Zukunft
-        </div>
-
-        <h1>
-            Euer Hochzeitsgeschenk
-        </h1>
-
-        <div class="divider">
-            ✿
-        </div>
-
-        <p>
-            Wir wünschen euch von Herzen
-            ganz viel Liebe, Glück, Abenteuer
-            und unzählige wunderschöne
-            gemeinsame Momente.
-        </p>
-
-        <p>
-            Und für den einen oder anderen
-            davon gibt es von uns …
-        </p>
-
-        <div class="reward">
-            350 €
-        </div>
-
-        <p>
-            <strong>
-                Auf euch, Janike & Mirco!
-            </strong>
-        </p>
-
-        <p>
-            🌿 🌸 ❤️ 🌸 🌿
-        </p>
-
-    </div>
-
-
-</div>
-
-
-
-<script>
-
-
-    /* =========================
-       FRAGEN
-    ========================= */
-
-    const questions = [
-
-        {
-            question:
-                "Welche Farbe hat das Gras?",
-
-            answers: [
-                "Blau",
-                "Grün",
-                "Pink",
-                "Lila"
-            ],
-
-            correct: 1
-        },
-
-
-        {
-            question:
-                "Wie viele Fragen gibt es in diesem Rätsel?",
-
-            answers: [
-                "Eine",
-                "Zwei",
-                "Drei",
-                "Vier"
-            ],
-
-            correct: 2
-        },
-
-
-        {
-            question:
-                "Wie hoch ist euer Geschenk?",
-
-            answers: [
-                "150 €",
-                "250 €",
-                "300 €",
-                "350 €"
-            ],
-
-            correct: 3
-        }
-
-    ];
-
-
-    let currentQuestion = 0;
-
-
-
-    /* =========================
-       QUIZ STARTEN
-    ========================= */
-
-    function startQuiz() {
-
-        document
-            .getElementById("start")
-            .classList
-            .add("hidden");
-
-
-        document
-            .getElementById("quiz")
-            .classList
-            .remove("hidden");
-
-
-        showQuestion();
-
-    }
-
-
-
-    /* =========================
-       FRAGE ANZEIGEN
-    ========================= */
-
-    function showQuestion() {
-
-        const q =
-            questions[currentQuestion];
-
-
-        document
-            .getElementById("questionNumber")
-            .textContent =
-
-            "Frage " +
-            (currentQuestion + 1) +
-            " von " +
-            questions.length;
-
-
-        document
-            .getElementById("question")
-            .textContent =
-
-            q.question;
-
-
-        /* Fortschrittsbalken */
-
-        const progress =
-
-            ((currentQuestion + 1)
-            / questions.length)
-            * 100;
-
-
-        document
-            .getElementById("progressBar")
-            .style.width =
-
-            progress + "%";
-
-
-        const answersContainer =
-
-            document
-            .getElementById("answers");
-
-
-        answersContainer.innerHTML = "";
-
-
-        document
-            .getElementById("message")
-            .textContent = "";
-
-
-        q.answers.forEach(
-
-            function(answer, index) {
-
-
-                const button =
-                    document.createElement(
-                        "button"
-                    );
-
-
-                button.textContent =
-                    answer;
-
-
-                button.className =
-                    "answer";
-
-
-                button.onclick =
-
-                    function() {
-
-                        checkAnswer(index);
-
-                    };
-
-
-                answersContainer
-                    .appendChild(button);
+                min-height: 100dvh;
 
             }
 
-        );
 
-    }
+            .card {
 
+                padding:
+                    28px 18px;
 
+                border-radius: 24px;
 
-    /* =========================
-       ANTWORT PRÜFEN
-    ========================= */
-
-    function checkAnswer(
-        selectedAnswer
-    ) {
-
-        const q =
-            questions[currentQuestion];
+            }
 
 
-        const message =
-            document
-            .getElementById("message");
+            .card::before {
+
+                inset: 7px;
+
+                border-radius: 20px;
+
+            }
 
 
-        if (
-            selectedAnswer ===
-            q.correct
-        ) {
+            .flowers {
 
-            message.textContent =
-                "🌸 Richtig! Sehr gut!";
+                font-size: 1.3rem;
 
+                letter-spacing: 3px;
 
-            message.className =
-                "correct";
+                margin-bottom: 8px;
+
+            }
 
 
-            currentQuestion++;
+            .small-title {
+
+                font-size: 0.65rem;
+
+                letter-spacing: 2px;
+
+            }
 
 
-            setTimeout(
+            h1 {
 
-                function() {
+                font-size: 2.2rem;
 
+                margin-bottom: 5px;
 
-                    if (
-                        currentQuestion <
-                        questions.length
-                    ) {
-
-                        showQuestion();
-
-                    }
-
-                    else {
-
-                        document
-                            .getElementById("quiz")
-                            .classList
-                            .add("hidden");
+            }
 
 
-                        document
-                            .getElementById("success")
-                            .classList
-                            .remove("hidden");
+            h2 {
+
+                font-size: 1.1rem;
+
+                margin-bottom: 20px;
+
+            }
 
 
-                        createConfetti();
+            h3 {
 
-                    }
+                font-size: 1.25rem;
 
-                },
+                margin-bottom: 20px;
 
-                800
+            }
 
-            );
+
+            p {
+
+                font-size: 0.95rem;
+
+                line-height: 1.55;
+
+                margin: 10px 0;
+
+            }
+
+
+            .divider {
+
+                margin: 18px 0;
+
+            }
+
+
+            .button {
+
+                width: 100%;
+
+                margin-top: 18px;
+
+                padding:
+                    13px 20px;
+
+                font-size: 1rem;
+
+            }
+
+
+            .answer {
+
+                padding:
+                    14px 16px;
+
+                margin: 9px 0;
+
+                font-size: 0.95rem;
+
+            }
+
+
+            /* Geschenkseite */
+
+            #reward h1 {
+
+                font-size: 1.9rem;
+
+                margin-bottom: 8px;
+
+            }
+
+
+            #reward .reward {
+
+                font-size: 4rem;
+
+                margin: 12px 0;
+
+            }
+
+
+            #reward .success-icon {
+
+                font-size: 2.8rem;
+
+                margin-bottom: 4px;
+
+            }
+
+
+            #reward .flowers {
+
+                margin-bottom: 4px;
+
+            }
+
+
+            #reward .divider {
+
+                margin: 12px 0;
+
+            }
+
+
+            #reward p {
+
+                font-size: 0.9rem;
+
+                line-height: 1.45;
+
+                margin: 8px 0;
+
+            }
 
         }
 
+    </style>
 
-        else {
-
-            message.textContent =
-                "🌿 Das war leider nicht richtig. Versuch es noch einmal! 😉";
+</head>
 
 
-            message.className =
-                "wrong";
-
-        }
-
-    }
+<body>
 
 
+    <!-- =========================
+         DEKORATIVE BLÜTEN
+    ========================== -->
 
-    /* =========================
-       BELOHNUNG ANZEIGEN
-    ========================= */
+    <div class="flower one">🌸</div>
 
-    function showReward() {
+    <div class="flower two">🌿</div>
 
-        document
-            .getElementById("success")
-            .classList
-            .add("hidden");
+    <div class="flower three">🌼</div>
 
-
-        document
-            .getElementById("reward")
-            .classList
-            .remove("hidden");
-
-
-        createConfetti();
-
-    }
+    <div class="flower four">🌸</div>
 
 
 
-    /* =========================
-       KONFETTI
-    ========================= */
+    <!-- =========================
+         HAUPTKARTE
+    ========================== -->
 
-    function createConfetti() {
+    <div class="card">
 
-        const symbols = [
-            "🌸",
-            "🌿",
-            "✨",
-            "💕",
-            "🌼"
+
+        <!-- =====================
+             STARTSEITE
+        ====================== -->
+
+        <div id="start">
+
+            <div class="flowers">
+                🌿 🌸 💍 🌸 🌿
+            </div>
+
+            <div class="small-title">
+                Ein kleines Abenteuer für
+            </div>
+
+            <h1>
+                Janike & Mirco
+            </h1>
+
+            <h2>
+                Das kleine Hochzeitsrätsel
+            </h2>
+
+
+            <p>
+                Liebe Janike, lieber Mirco,
+            </p>
+
+
+            <p>
+                heute wird gefeiert, gelacht,
+                getanzt und natürlich geheiratet.
+                <span class="heart">❤️</span>
+            </p>
+
+
+            <div class="divider">
+                ✿
+            </div>
+
+
+            <p>
+                Doch bevor ihr euer Hochzeitsgeschenk
+                in Empfang nehmen könnt, wartet noch
+                eine kleine Herausforderung auf euch …
+            </p>
+
+
+            <p>
+                <strong>Drei Fragen.</strong><br>
+                <strong>Drei Antworten.</strong><br>
+                <strong>Eine kleine Überraschung.</strong> 🎁
+            </p>
+
+
+            <p>
+                Nur wenn ihr alle drei Fragen richtig
+                beantwortet, lüftet sich das Geheimnis.
+            </p>
+
+
+            <p>
+                <strong>Seid ihr bereit?</strong>
+            </p>
+
+
+            <button
+                class="button"
+                onclick="startQuiz()">
+
+                Das Rätsel beginnt 🌸
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             QUIZ
+        ====================== -->
+
+        <div id="quiz" class="hidden">
+
+            <div class="flowers">
+                🌸 🌿 🌸
+            </div>
+
+
+            <div id="questionNumber">
+                Frage 1 von 3
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+
+            <h3 id="question"></h3>
+
+
+            <div id="answers"></div>
+
+
+            <div id="message"></div>
+
+        </div>
+
+
+
+        <!-- =====================
+             ERFOLG
+        ====================== -->
+
+        <div id="success" class="hidden">
+
+            <div class="success-icon">
+                🎉
+            </div>
+
+
+            <div class="flowers">
+                🌸 🌿 🌸
+            </div>
+
+
+            <h1>
+                Geschafft!
+            </h1>
+
+
+            <p>
+                Janike & Mirco,
+            </p>
+
+
+            <p>
+                ihr habt tatsächlich alle drei Fragen
+                richtig beantwortet!
+                <span class="heart">❤️</span>
+            </p>
+
+
+            <div class="divider">
+                ✿
+            </div>
+
+
+            <p>
+                Damit habt ihr euch verdient,
+                das Geheimnis eures Geschenks
+                zu lüften.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="showReward()">
+
+                Geheimnis lüften 🎁
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             BELOHNUNG
+        ====================== -->
+
+        <div id="reward" class="hidden">
+
+            <div class="success-icon">
+                🥂
+            </div>
+
+
+            <div class="small-title">
+                Für eure gemeinsame Zukunft
+            </div>
+
+
+            <h1>
+                Euer Hochzeitsgeschenk
+            </h1>
+
+
+            <div class="divider">
+                ✿
+            </div>
+
+
+            <p>
+                Wir wünschen euch von Herzen
+                ganz viel Liebe, Glück, Abenteuer
+                und unzählige wunderschöne
+                gemeinsame Momente.
+            </p>
+
+
+            <p>
+                Und für den einen oder anderen
+                davon gibt es von uns …
+            </p>
+
+
+            <div class="reward">
+                350 €
+            </div>
+
+
+            <p>
+                <strong>
+                    Auf euch, Janike & Mirco!
+                </strong>
+            </p>
+
+
+            <p>
+                🌿 🌸 ❤️ 🌸 🌿
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           TESTFRAGEN
+        ========================= */
+
+        const questions = [
+
+            {
+                question:
+                    "Welche Farbe hat das Gras?",
+
+                answers: [
+                    "Blau",
+                    "Grün",
+                    "Pink",
+                    "Lila"
+                ],
+
+                correct: 1
+            },
+
+
+            {
+                question:
+                    "Wie viele Fragen gibt es in diesem Rätsel?",
+
+                answers: [
+                    "Eine",
+                    "Zwei",
+                    "Drei",
+                    "Vier"
+                ],
+
+                correct: 2
+            },
+
+
+            {
+                question:
+                    "Wie hoch ist euer Geschenk?",
+
+                answers: [
+                    "150 €",
+                    "250 €",
+                    "300 €",
+                    "350 €"
+                ],
+
+                correct: 3
+            }
+
         ];
 
 
-        for (
-            let i = 0;
-            i < 35;
-            i++
-        ) {
-
-            const confetti =
-                document.createElement(
-                    "div"
-                );
+        let currentQuestion = 0;
 
 
-            confetti.className =
-                "confetti";
 
+        /* =========================
+           QUIZ STARTEN
+        ========================= */
 
-            confetti.textContent =
+        function startQuiz() {
 
-                symbols[
-                    Math.floor(
-                        Math.random()
-                        * symbols.length
-                    )
-                ];
-
-
-            confetti.style.left =
-
-                Math.random() * 100
-                + "vw";
-
-
-            confetti.style.animationDelay =
-
-                Math.random() * 1.5
-                + "s";
-
-
-            confetti.style.fontSize =
-
-                (14 +
-                Math.random() * 18)
-                + "px";
+            document
+                .getElementById("start")
+                .classList
+                .add("hidden");
 
 
             document
-                .body
-                .appendChild(confetti);
+                .getElementById("quiz")
+                .classList
+                .remove("hidden");
 
 
-            setTimeout(
+            showQuestion();
 
-                function() {
+        }
 
-                    confetti.remove();
 
-                },
 
-                5500
+        /* =========================
+           FRAGE ANZEIGEN
+        ========================= */
+
+        function showQuestion() {
+
+            const q =
+                questions[currentQuestion];
+
+
+            document
+                .getElementById("questionNumber")
+                .textContent =
+
+                "Frage " +
+                (currentQuestion + 1) +
+                " von " +
+                questions.length;
+
+
+            document
+                .getElementById("question")
+                .textContent =
+
+                q.question;
+
+
+            const progress =
+
+                ((currentQuestion + 1)
+                / questions.length)
+                * 100;
+
+
+            document
+                .getElementById("progressBar")
+                .style.width =
+
+                progress + "%";
+
+
+            const answersContainer =
+                document
+                .getElementById("answers");
+
+
+            answersContainer.innerHTML = "";
+
+
+            document
+                .getElementById("message")
+                .textContent = "";
+
+
+            document
+                .getElementById("message")
+                .className = "";
+
+
+            q.answers.forEach(
+
+                function(answer, index) {
+
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.textContent =
+                        answer;
+
+
+                    button.className =
+                        "answer";
+
+
+                    button.type =
+                        "button";
+
+
+                    button.onclick =
+
+                        function() {
+
+                            checkAnswer(index);
+
+                        };
+
+
+                    answersContainer
+                        .appendChild(button);
+
+                }
 
             );
 
         }
 
-    }
 
-</script>
+
+        /* =========================
+           ANTWORT PRÜFEN
+        ========================= */
+
+        function checkAnswer(
+            selectedAnswer
+        ) {
+
+            const q =
+                questions[currentQuestion];
+
+
+            const message =
+                document
+                .getElementById("message");
+
+
+            if (
+                selectedAnswer ===
+                q.correct
+            ) {
+
+                message.textContent =
+                    "🌸 Richtig! Sehr gut!";
+
+
+                message.className =
+                    "correct";
+
+
+                currentQuestion++;
+
+
+                setTimeout(
+
+                    function() {
+
+
+                        if (
+                            currentQuestion <
+                            questions.length
+                        ) {
+
+                            showQuestion();
+
+                        }
+
+                        else {
+
+                            document
+                                .getElementById("quiz")
+                                .classList
+                                .add("hidden");
+
+
+                            document
+                                .getElementById("success")
+                                .classList
+                                .remove("hidden");
+
+
+                            createConfetti();
+
+                        }
+
+                    },
+
+                    800
+
+                );
+
+            }
+
+
+            else {
+
+                message.textContent =
+                    "🌿 Das war leider nicht richtig. Versuch es noch einmal! 😉";
+
+
+                message.className =
+                    "wrong";
+
+            }
+
+        }
+
+
+
+        /* =========================
+           BELOHNUNG ANZEIGEN
+        ========================= */
+
+        function showReward() {
+
+            document
+                .getElementById("success")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("reward")
+                .classList
+                .remove("hidden");
+
+
+            createConfetti();
+
+        }
+
+
+
+        /* =========================
+           KONFETTI
+        ========================= */
+
+        function createConfetti() {
+
+            const symbols = [
+
+                "🌸",
+                "🌿",
+                "✨",
+                "💕",
+                "🌼"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 35;
+                i++
+            ) {
+
+                const confetti =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                confetti.className =
+                    "confetti";
+
+
+                confetti.textContent =
+
+                    symbols[
+                        Math.floor(
+                            Math.random()
+                            * symbols.length
+                        )
+                    ];
+
+
+                confetti.style.left =
+
+                    Math.random() * 100
+                    + "vw";
+
+
+                confetti.style.animationDelay =
+
+                    Math.random() * 1.5
+                    + "s";
+
+
+                confetti.style.fontSize =
+
+                    (14 +
+                    Math.random() * 18)
+                    + "px";
+
+
+                document
+                    .body
+                    .appendChild(confetti);
+
+
+                setTimeout(
+
+                    function() {
+
+                        confetti.remove();
+
+                    },
+
+                    5500
+
+                );
+
+            }
+
+        }
+
+    </script>
 
 </body>
 
